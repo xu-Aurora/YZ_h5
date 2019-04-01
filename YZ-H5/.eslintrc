@@ -1,0 +1,15 @@
+{
+  "extends": "umi",
+  "rules": {
+    "eqeqeq": 0,
+    "no-unused-vars": 0
+  },
+  "globals":{
+    "back": true,
+    "goDetail": true,
+    "gotoMemberInnerPage": true,
+    "goCall": true,
+    "status1": true,
+    "goPay": true 
+  }
+}

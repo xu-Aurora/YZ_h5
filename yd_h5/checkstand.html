@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+	    <meta http-equiv="cache-control" content="max-age=0"/>
+	    <meta http-equiv="cache-control" content="no-cache"/>
+	    <meta http-equiv="pragma" content="no-cache"/>
+	    <meta http-equiv="expires" content="0"/>
+	    <meta name="format-detection" content="telephone=no"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=contain">
+		<link rel="stylesheet" type="text/css" href="./assets/css/normalize.css"/>
+    <link rel="stylesheet" href="./assets/icomfont/iconfont.css">
+    <link rel="stylesheet/less" type="text/css" href="./assets/css/checkstand.less">
+    
+    <script src="./assets/js/rem.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./assets/js/less.min.js" ></script>
+
+		<title>收银台</title>
+	</head>
+	<body>
+    <div class="container">
+      <!-- 头部 -->
+        <header class="header">
+            <div class="header_close">
+              <img class="closes" src="./assets/img/gb.png" alt="">
+            </div>
+            <div class="header_title">
+              收银台
+            </div>
+        </header>
+
+      <!-- 剩余时间 -->
+        <div class="residueTime">
+          <p>支付剩余时间</p>
+          <p>
+            <span class="_h"></span> :
+            <span class="_m"></span> :
+            <span class="_s"></span>
+          </p>
+        </div>
+
+      <!-- 购买商品与应付金额 -->
+        <div class="commodity">
+          <ul>
+            <li>
+              <div class="com_left">购买商品</div>
+              <div class="com_right goodsInfo">2018年物业费...等3件商品</div>
+            </li>
+            <li>
+                <div class="com_left">应付金额</div>
+                <div class="com_right">&yen; <span class="amounts"></span></div>
+            </li>
+          </ul>
+        </div>
+
+      <!-- 支付方式 -->
+        <div class="payWay">
+          <p>支付方式</p>
+          <ul >
+            <li data-wayCode="SDZFB">
+              <div class="left">
+                <img src="./assets/img/zfb.png" alt="">
+              </div>
+              <div class="payName">支付宝</div>
+              <div class="right checked_status">
+                  <img src="./assets/img/xz.png" alt="">
+              </div>
+            </li>
+            <!-- <li data-wayCode="SDWX">
+              <div class="left">
+                <img src="./assets/img/wx.png" alt="">
+              </div>
+              <div class="payName">微信支付</div>
+              <div class="right">
+                <img src="./assets/img/yq.png" alt="">
+              </div>
+            </li>
+            <li data-wayCode="SDJF">
+                <div class="left">
+                  <img src="./assets/img/jd.png" alt="">
+                </div>
+                <div class="payName">京东支付</div>
+                <div class="right">
+                  <img src="./assets/img/yq.png" alt="">
+                </div>
+            </li>
+            <li data-wayCode="SDLP">
+              <div class="left">
+                <img src="./assets/img/pay.png" alt="">
+              </div>
+              <div class="payName">apply Pay</div>
+              <div class="right">
+                <img src="./assets/img/yq.png" alt="">
+              </div>
+            </li> -->
+          </ul>
+        </div>
+
+      <!-- 底部 -->
+        <footer class="bottom" onclick="payInfo()">
+          <div>支付</div>
+        </footer>
+
+
+      <!-- 是否支付成功,模态框 -->
+      <div class="bg">
+          <div class="modal">
+              <div class="modal_tip">
+                是否已经支付成功 ?
+              </div>
+              <div class="modal_btn">
+                <div>未支付</div>
+                <div>已支付</div>
+              </div>
+          </div>
+      </div>
+
+      <!-- 关闭收银台,模态框 -->
+      <div class="cancel_modal">
+          <div class="modal">
+              <div class="modal_tip">
+                <h3>确定要取消支付 ?</h3>
+                <p>您的订单在<span class="_h"></span>小时<span class="_m"></span>分钟内未支付将被关闭,请尽快完成支付。</p>
+                <p>您可前往 个人中心-我的订单 继续完成支付</p>
+              </div>
+              <div class="modal_btn">
+                <div data-ispay="1">继续支付</div>
+                <div data-ispay="2" class="leave">确认离开</div>
+              </div>
+          </div>
+      </div>
+
+      <!-- 错误提示 -->
+      <div class="failTips">
+        <div class="iconfont icon-guanbi"></div>
+        <p>报错!!!!</p>
+      </div>
+      
+    </div>
+
+
+  </body>
+  <script src="./assets/js/jquery-3.0.0.min.js"></script>
+
+
+  <script>
+
+    // var domain = `http://local.zephcard.com`;  //测试域名
+    var domain = `http://www.jiayuanplus.com`;  //线上域名(接口)
+    // var domain = `http://business.zephcard.com`;   //线上域名(跳转)
+
+
+    var parmas = JSON.parse(localStorage.getItem('parmas'));
+
+    var datas = {};
+    var timer;
+
+    //与ios交互,展示模态框
+    function showModal(){
+      $('.cancel_modal').css('display','block');
+    }
+
+
+
+    //获取url后面的参数
+    function getSearch() {
+      var str = location.search;
+      search = decodeURI(str);
+      search = str.slice(1);
+      var arr = search.split("&");
+      var obj = {};
+      arr.forEach(function (e, i) {
+        var key = e.split("=")[0];
+        var value = e.split("=")[1];
+        obj[key] = value;
+      })
+      return obj;
+    }
+
+    //订单请求
+    function ajaxRequest() {
+      $.ajax({
+        // url:`../../mall/order/mng/getPayInfoByOrigOrderNo`,
+        // url:`http://r17753n223.51mypc.cn:9090/mall/order/mng/getPayInfoByOrigOrderNo`, //外网访问本地环境
+        url:`http://local.zephcard.com/mall/order/mng/getPayInfoByOrigOrderNo`, //测试环境
+        type: 'POST',
+        data: {
+          userId: getSearch().userId,
+          origOrderNo: getSearch().origOrderNo,
+          apiName: 'mall.order.mng.getPayInfoByOrigOrderNo',
+          merchantCode: '0001',
+          token: getSearch().token
+        },
+        success: function (info) {
+          if(info.code == '200'){
+            datas.origOrderNo = info.data.origOrderNo;
+            datas.showName = info.data.showName;
+            datas.amount = info.data.amount;
+            datas.time = info.data.time;
+
+            $('.goodsInfo').text(datas.showName);
+            $('.amounts').text(datas.amount);
+            countTime();
+          }else{
+            $('.failTips p').text(data.message);
+            $('.failTips').css('display','block');
+
+            setTimeout(function (params) {
+              $('.failTips').css('display','none');
+            },2000)
+            
+          }
+        }
+      })
+    }
+    //我的订单,直接点"付款"跳转过来
+    function ajaxRequest11() {
+      $.ajax({
+        url:`../../mall/order/mng/getPayInfoByOrderNo`,
+        // url:`http://r17753n223.51mypc.cn:9090/mall/order/mng/getPayInfoByOrderNo`, //外网访问本地环境
+        // url:`http://local.zephcard.com/mall/order/mng/getPayInfoByOrderNo`, //测试环境
+        type: 'POST',
+        data: {
+          userId: getSearch().userId,
+          orderNo: getSearch().orderNo,
+          apiName: 'mall.order.mng.getPayInfoByOrderNo',
+          merchantCode: '0001',
+          token: getSearch().token
+        },
+        success: function (info) {
+          if(info.code == '200'){
+            datas.orderNo = info.data.orderNo;
+            datas.showName = info.data.showName;
+            datas.amount = info.data.amount;
+            datas.time = info.data.time;
+
+            $('.goodsInfo').text(datas.showName);
+            $('.amounts').text(datas.amount);
+            countTime();
+          }else{
+            $('.failTips p').text(data.message);
+            $('.failTips').css('display','block');
+
+            setTimeout(function (params) {
+              $('.failTips').css('display','none');
+            },2000)
+            
+          }
+        }
+      })
+    }
+    //会员请求
+    function ajaxRequest1() {
+      $.ajax({
+        url:`../../cif/member/order/getPayInfoByOrderNo`,
+        // url:`http://r17753n223.51mypc.cn:9090/mall/order/mng/getPayInfoByOrderNo`, //外网访问本地环境
+        // url:`http://local.zephcard.com/mall/order/mng/getPayInfoByOrderNo`, //测试环境
+        type: 'POST',
+        data: {
+          userId: getSearch().userId,
+          orderNo: getSearch().origOrderNo,
+          apiName: 'cif.member.order.getPayInfoByOrderNo',
+          merchantCode: '0001',
+          token: getSearch().token
+        },
+        success: function (info) {
+          if(info.code == '200'){
+            datas.origOrderNo = info.data.orderNo;
+            datas.showName = info.data.goodsName;
+            datas.amount = info.data.amount;
+            datas.time = info.data.time;
+
+            $('.goodsInfo').text(datas.showName);
+            $('.amounts').text(datas.amount);
+            countTime();
+
+          }else{
+            $('.failTips p').text(data.message);
+            $('.failTips').css('display','block');
+
+            setTimeout(function (params) {
+              $('.failTips').css('display','none');
+            },2000)
+            
+          }
+        }
+      })
+    }
+    if(getSearch().type == 2){
+      ajaxRequest();
+    }
+    if(getSearch().type == 1){
+      ajaxRequest1();
+    }
+    if(getSearch().type == 3){
+      ajaxRequest11();
+    }
+
+    
+    
+
+
+    //倒计时
+    function countTime() {  
+        //获取当前时间  
+        var date = new Date();  
+        var now = date.getTime();  
+        //设置截止时间  
+        // var str="2019/1/4 15:40:00";
+        // var endDate = new Date(str); 
+        // var end = endDate.getTime();  
+        
+        //时间差  
+        var leftTime = datas.time-now; 
+        // console.log(datas.time);
+        //定义变量h,m,s保存倒计时的时间  
+        var h,m,s;  
+        if (leftTime>=0) {  
+            h = Math.floor(leftTime/1000/60/60%24);  
+            m = Math.floor(leftTime/1000/60%60);  
+            s = Math.floor(leftTime/1000%60);  
+
+            $('._h').text(h);
+            $('._m').text(m);
+            $('._s').text(s);
+
+          //递归每秒调用countTime方法，显示动态时间效果  
+          timer = setTimeout(countTime,1000);  
+
+        }else{
+            h = 0;
+            m = 0;
+            s = 0;
+            $('._h').text(h);
+            $('._m').text(m);
+            $('._s').text(s); 
+
+            clearInterval(timer);
+            // alert("时间到，结束!");
+        }  
+    }
+    
+
+    //支付方式
+    var wayCode = 'SDZFB';
+
+    //点击关闭,弹出模态框
+    $('.closes').on('click',function(){
+      $('.cancel_modal').css('display','block');
+    })
+    //点击支付方式
+    $('.payWay').on('click','li',function(){
+      $('.payWay').find('.right img').attr('src','./assets/img/yq.png')
+      $(this).find('.right img').attr('src','./assets/img/xz.png')
+    })
+
+    function goCart(){
+      //安卓
+      window.WebViewJavascriptBridge.callHandler(
+        'goCart',
+        {type: getSearch().type}
+      );
+    }
+
+    function goCart1(){
+      $('.cancel_modal').css('display','none');
+
+      goCart(getSearch().type);
+
+
+    }
+
+    //取消支付,模态框
+    $('.cancel_modal .modal_btn').on('click','div',function(){
+
+      $('.cancel_modal .modal_btn').find('div').css('background','#FFFFFF');
+      // $(this).css({
+      //   'background':'linear-gradient(#FDD60C,#FFB40B)',
+      //   'borderRadius': '0 0 5/12rem 0'
+      // });
+
+      var value = $(this).data('ispay');
+      if(value == 1){
+        $('.cancel_modal').css('display','none');
+      }
+      if(value == 2){
+        if(getSearch().type == 1){  //会员
+          $('.leave').trigger(goCart1())
+        }
+        if(getSearch().type == 2){  //确认订单,购物车
+          $('.leave').trigger(goCart1())
+        }
+        if(getSearch().type == 3){  //我的订单
+          window.location.href = `${domain}/h5/dist/#/myOrder?userId=${getSearch().userId}&token=${getSearch().token}&userName=${getSearch().userName}&userPhone=${getSearch().userPhone}`;
+        }
+      }
+
+      
+    })
+
+
+
+
+    var us = navigator.userAgent;
+		var isAndroid = !!us.match(/android/ig);
+    var isIos = !!us.match(/iphone|ipod/ig);
+
+
+
+    function payInfo() {
+      var obj = {};
+      obj.amount = datas.amount;
+      obj.origOrderNo = datas.origOrderNo;
+      obj.orderNo = getSearch().orderNo;
+      obj.wayCode = wayCode;
+      obj.type = getSearch().type; //传type为了区分app调不同的支付接口,会员跳转来的type=1,订单跳转来的type=2,type=3为单个订单支付
+      var objs = JSON.stringify(obj);
+
+      //ios
+      pay(objs);
+
+    }
+
+    function pay(){
+
+      //安卓
+      window.WebViewJavascriptBridge.callHandler(
+        'pay',
+        {'amount': datas.amount,'origOrderNo': datas.origOrderNo,'wayCode': wayCode,'type': getSearch().type,'orderNo': datas.orderNo}
+      );
+
+    }
+
+
+
+
+  </script>
+</html>

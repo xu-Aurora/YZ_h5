@@ -1,0 +1,266 @@
+.box{
+    width: 100%;
+    background: #FFFFFF;
+    height: 100vh;
+    .grade{
+        height: 204/12rem;
+        background: url(../../../assets/Group1.png);
+        background-size: contain;
+        margin-bottom: 24/12rem;
+        position: relative;
+        .grade_logo{
+            text-align: center;
+            position: relative;
+            height: 204/12rem;
+            .grade_img{
+                width: 186/12rem;
+                margin: 0 auto;
+                position: relative;
+                img{
+                    width: 100%;
+                }
+                span{
+                    color: #EEC489;
+                    font-size: 8/12rem;
+                    position: absolute;
+                    left: 98/12rem;
+                    bottom: 62/12rem; 
+                }
+            }
+        }
+        .grade_num{
+            position: absolute;
+            left: 30/12rem;
+            top: 24/12rem;
+            font-size: 18/12rem;
+            color: #ffffff;
+        } 
+    }
+    .introduce{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 12/12rem; 
+        .introduce_list{
+            width: 111/12rem;
+            height: 100/12rem;
+            background: #FFFBF0;
+            text-align: center;
+            padding-top: 8/12rem;
+            box-sizing: border-box; 
+            img{
+                width: 32/12rem;
+                height: 32/12rem;
+            }
+            .introduce_text{
+                color: #604E21;
+                font-size: 14/12rem;
+                margin-top: 8/12rem; 
+            }
+        }
+    }
+    .info{
+        height: 74/12rem;
+        background: #FFFBF0;
+        display: flex;
+        align-items: center;
+        margin-bottom: 12/12rem;
+        .info_list{
+            flex: 1;
+            text-align: center;
+            p:nth-child(1) {
+                font-size: 18/12rem;
+                color: #604E21;
+            }
+            p:nth-child(2) {
+                font-size: 12/12rem;
+                color: #604E21;
+                margin-top: 6/12rem;
+            }
+        }
+    }
+    .headline{
+        margin: 0 auto;
+        width: 226/12rem;
+        height: 38/12rem;
+        line-height: 38/12rem;
+        background: linear-gradient(#372416, #453722);
+        border-radius: 19/12rem;
+        box-sizing: border-box;
+        font-size: 18/12rem;
+        color:#FFFBF0;
+        text-align: center;
+        margin-bottom: 12/12rem;
+    }
+    .amount{
+        padding: 12/12rem 12/12rem 0;
+        box-sizing: border-box;
+        height: 100/12rem;
+        background: #FFFBF0;
+        margin-bottom: 24/12rem;
+        .amount_headline{
+            color: #604E21;
+            font-size: 14/12rem;
+            margin-bottom: 10/12rem;
+        }
+        .amount_box{
+            display: flex;
+            .amount_Progress{
+                flex: 1;
+                .amount_upgrade{
+                    font-size: 10/12rem;
+                    color: #604E21;
+                    margin-bottom: 4/12rem; 
+                }
+                .amount_lable{
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 10/12rem;
+                    color: #604E21;
+                    margin-top: 6/12rem;
+                }
+            }
+            .amount_img{
+                width: 20%;
+                text-align: center;
+                padding-top: 1rem;
+                img{
+                    width: 22/12rem;
+                    height: 22/12rem;
+                }
+            }
+        }
+      
+    }
+    .price{
+        height: 120/12rem;
+        background: #FFFBF0;
+        padding: 12/12rem 12/12rem 0 ;
+        box-sizing: border-box;
+        margin-bottom: 16/12rem;
+        text-align: center;
+        .price_list{
+            margin-bottom: 16/12rem;
+            overflow: hidden;
+            >div{
+                width: 80/12rem;
+                height: 40/12rem;
+                line-height: 40/12rem;
+                border: 1px solid #CC9C2D;
+                color: #604E21;
+                font-size: 14/12rem;
+                float: left;
+                margin-right: 10/12rem;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+            >div:last-child{
+                margin-right: 0; 
+            }
+        }
+        .price_list:last-child{
+            margin-bottom: 0; 
+        }
+    }
+    .reward{
+        font-size: 14/12rem;
+        padding-left: 12/12rem;
+        text-align: left;
+        margin-bottom: 16/12rem;
+        span{
+            color: #CC9C2D;
+            font-size: 16/12rem;
+            
+        }
+    }
+    .ticket{
+        padding: 12/12rem 12/12rem 0 ;
+        box-sizing: border-box;
+        margin-bottom: 12/12rem;
+        .ticket_list{
+            background: url('../../../assets/Group7.png') no-repeat;
+            height: 67/12rem;
+            background-size: cover;
+            margin-bottom: 8/12rem;
+            padding:  12/12rem 12/12rem 0;
+            box-sizing: border-box;
+
+            .ticket_detail{
+                display: flex;
+                margin-bottom: 6/12rem;
+                color: #604E21;
+                font-size: 14/12rem;
+                >div{
+                    flex: 1;
+                }
+                >div:nth-child(1) {
+                    text-align: left;
+                }
+                >div:nth-child(2) {
+                    text-align: right;
+                }
+            }
+            .ticket_explain{
+                text-align: left;
+                color: #604E21;
+                font-size: 12/12rem;
+            }
+        }
+    }
+    .choice{
+        padding: 12/12rem 12/12rem 0 ;
+        box-sizing: border-box;
+        margin-bottom: 12/12rem;
+        .choice_title{
+            font-size: 14/12rem;
+            margin-bottom: 8/12rem;
+            text-align: left;
+        }
+        .choice_list{
+            background: url('../../../assets/Group7.png') no-repeat;
+            height: 54/12rem;
+            background-size: cover;
+            margin-bottom: 8/12rem;
+            box-sizing: border-box;
+            .choice_detail{
+                display: flex;
+                color: #604E21;
+                font-size: 14/12rem;
+                align-items: center;
+                padding: 0 12/12rem;
+                height: 100%;
+                >div{
+                    flex: 1;
+                }
+                >div:nth-child(1) {
+                    text-align: left;
+                }
+                >div:nth-child(2) {
+                    text-align: right;
+                }
+            }
+        }
+    }
+    .pay{
+        width: 100%;
+        height: 49/12rem;
+        line-height: 49/12rem;
+        text-align: center;
+        background: linear-gradient(#372416, #453722);
+        color: #E4C58F;
+        font-size: 16/12rem;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+    }
+    .blank{
+        height: 49/12rem; 
+    }
+   :global{
+        .am-progress-bar {
+            height: 8/12rem !important;
+            border-radius: 4px; 
+            background:  linear-gradient(#EBD19E, #D4AF70);
+            border: none;
+        }
+   }
+}

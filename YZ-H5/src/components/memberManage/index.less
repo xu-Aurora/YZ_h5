@@ -1,0 +1,277 @@
+.box{
+    width: 100%;
+    background: #FFFFFF;
+    height: 100vh;
+    .header{
+        height: 42/12rem;
+        line-height: 42/12rem;
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        .header_title{
+            font-size: 18/12rem;
+            color: #2b2b2b;
+            background: #FFFFFF;
+        }
+        .header_btn{
+            height: 42/12rem;
+            position: absolute;
+            right:  0;
+            padding-right: 12/12rem;
+            top: 0;
+            color: #5b5b5b;
+            box-sizing: border-box;
+        }
+    }
+    .scoll{
+        height: calc(93vh);
+        overflow-y: auto;
+    }
+    .grade{
+        height: 204/12rem;
+        background: url(../../assets/Group1.png) no-repeat;
+        background-size: contain;
+        margin-bottom: 24/12rem;
+        .grade_logo{
+            text-align: center;
+            position: relative;
+            height: 204/12rem;
+            .grade_img{
+                width: 186/12rem;
+                margin: 0 auto;
+                position: relative;
+                img{
+                    width: 100%;
+                }
+                span{
+                    color: #EEC489;
+                    font-size: 8/12rem;
+                    position: absolute;
+                    left: 98/12rem;
+                    bottom: 62/12rem; 
+                }
+            }
+            .grade_btn{
+                width: 238/12rem;
+                height: 32/12rem;
+                line-height: 32/12rem;
+                background: linear-gradient(#EBD19E, #D4AF70);
+                border-radius: 16/12rem;
+                font-size: 16/12rem;
+                color: #FFFFFF;
+                position: absolute;
+                bottom: 12/12rem;
+                left: 50%;
+                margin-left: -238/12/2rem; 
+            }
+        } 
+    }
+    .grade1{
+        height: 204/12rem;
+        background: url(../../assets/Group1.png) no-repeat;
+        background-size: contain;
+        margin-bottom: 24/12rem;
+        position: relative;
+        .grade_logo{
+            text-align: center;
+            position: relative;
+            height: 204/12rem;
+            .grade_img{
+                width: 186/12rem;
+                margin: 0 auto;
+                position: relative;
+                img{
+                    width: 100%;
+                }
+                span{
+                    color: #EEC489;
+                    font-size: 8/12rem;
+                    position: absolute;
+                    left: 95/12rem;
+                    bottom: 60/12rem; 
+                }
+            }
+        }
+        .grade_num{
+            position: absolute;
+            left: 30/12rem;
+            top: 24/12rem;
+            font-size: 14/12rem;
+            color: #D5B174;
+        } 
+        .grade_lable{
+            position: absolute;
+            left: 30/12rem;
+            bottom: 8/12rem;
+            display: flex;
+            align-items: center; 
+            .lable_icon{
+                width: 22/12rem;
+                height: 22/12rem;
+                background: url(../../assets/grade.png) no-repeat;
+                background-size: 100% 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .icon_num{
+                    padding-left: 9/12rem;
+                    font-size: 8/12rem;
+                    color: #141414;
+                }
+            }
+            .lable_name{
+                color: #D5B174;
+                font-size: 14/12rem;
+                margin-left: 10/12rem;
+                .name_text{
+                    font-size: 12/12rem;
+                    margin-top: 2/12rem;
+                }
+            }
+        }
+    }
+    .content{
+        padding: 0 12px;
+        box-sizing: border-box;
+        .headline{
+            margin-top: 16/12rem;
+            color: #604E21;
+            font-size: 16/12rem;
+            font-weight: bold;
+            height: 22/12rem;
+            line-height: 22/12rem;
+            vertical-align: middle;
+            display: flex;
+            align-items: center;
+            margin-bottom: 12/12rem;
+            .headline_icon{
+                width: 4/12rem;
+                height: 15/12rem;
+                background: linear-gradient(#EBD19E, #D4AF70);
+                display: inline-block;
+            }
+            .headline_text{
+                margin-left: 8/12rem;
+            }
+        }
+        .headline1{
+            margin: 0 auto;
+            width: 226/12rem;
+            height: 38/12rem;
+            line-height: 38/12rem;
+            background: linear-gradient(#372416, #453722);
+            border-radius: 19/12rem;
+            box-sizing: border-box;
+            font-size: 18/12rem;
+            color:#FFFBF0;
+            text-align: center;
+            margin-bottom: 12/12rem;
+        }
+        .introduce{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12/12rem; 
+            .introduce_list{
+                width: 111/12rem;
+                height: 100/12rem;
+                background: #FFFBF0;
+                text-align: center;
+                padding-top: 8/12rem;
+                box-sizing: border-box; 
+                img{
+                    width: 32/12rem;
+                    height: 32/12rem;
+                }
+                .introduce_text{
+                    color: #604E21;
+                    font-size: 14/12rem;
+                    margin-top: 8/12rem; 
+                }
+            }
+        }
+        .info{
+            height: 74/12rem;
+            background: #FFFBF0;
+            display: flex;
+            align-items: center;
+            margin-bottom: 12/12rem;
+            .info_list{
+                flex: 1;
+                text-align: center;
+                p:nth-child(1) {
+                    font-size: 18/12rem;
+                    color: #604E21;
+                }
+                p:nth-child(2) {
+                    font-size: 12/12rem;
+                    color: #604E21;
+                    margin-top: 6/12rem;
+                }
+            }
+        }
+        .amount{
+            padding: 12/12rem 12/12rem 0;
+            box-sizing: border-box;
+            height: 100/12rem;
+            background: #FFFBF0;
+            overflow: hidden;
+            margin-bottom: 12/12rem;
+            .amount_headline{
+                color: #604E21;
+                font-size: 14/12rem;
+                margin-bottom: 10/12rem;
+            }
+            .amount_box{
+                display: flex;
+                .amount_Progress{
+                    flex: 1;
+                    .amount_upgrade{
+                        font-size: 10/12rem;
+                        color: #604E21;
+                        margin-bottom: 4/12rem; 
+                    }
+                    .amount_lable{
+                        display: flex;
+                        justify-content: space-between;
+                        font-size: 10/12rem;
+                        color: #604E21;
+                        margin-top: 6/12rem;
+                    }
+                }
+                .amount_img{
+                    width: 20%;
+                    text-align: center;
+                    padding-top: 1rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .lable_icon{
+                        width: 28/12rem;
+                        height: 28/12rem;
+                        background: url(../../assets/grade.png) no-repeat;
+                        background-size: 100% 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        .icon_num{
+                            padding-left: 9/12rem;
+                            font-size: 8/12rem;
+                            color: #141414;
+                        }
+                    }
+                }
+            }
+          
+        }
+    }
+   :global{
+        .am-progress-bar {
+            height: 8/12rem !important;
+            border-radius: 4px; 
+            background:  linear-gradient(#EBD19E, #D4AF70);
+            border: none;
+        }
+   }
+}

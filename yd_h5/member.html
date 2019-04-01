@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+	    <meta http-equiv="cache-control" content="max-age=0"/>
+	    <meta http-equiv="cache-control" content="no-cache"/>
+	    <meta http-equiv="pragma" content="no-cache"/>
+	    <meta http-equiv="expires" content="0"/>
+	    <meta name="format-detection" content="telephone=no"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=contain">
+		<link rel="stylesheet" type="text/css" href="./assets/css/normalize.css"/>
+    <link rel="stylesheet" href="./assets/icomfont/iconfont.css">
+		<link rel="stylesheet/less" type="text/css" href="./assets/css/member.less">
+		<title>会员支付成功</title>
+	</head>
+	<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header class="header">
+            <div class="header_close">
+              <img onclick="goHomepage()" src="./assets/img/gb.png" alt="">
+            </div>
+            <div class="header_title">
+              支付成功
+            </div>
+        </header>
+        <div class="content">
+          <div>
+              <img src="./assets/img/zf1.png" alt="">
+          </div>
+          <p>订单支付成功</p>
+        </div>
+
+        <div class="back" onclick="goHomepage()">
+          <div>返回</div>
+        </div>
+    
+    </div>
+
+
+
+
+
+  </body>
+  <script src="./assets/js/jquery-3.0.0.min.js"></script>
+	<script src="./assets/js/rem.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./assets/js/less.min.js" ></script>
+
+
+  <script>
+    //获取url后面的参数
+    function getSearch() {
+      var str = location.search;
+      search = decodeURI(str);
+      search = str.slice(1);
+      var arr = search.split("&");
+      var obj = {};
+      arr.forEach(function (e, i) {
+        var key = e.split("=")[0];
+        var value = e.split("=")[1];
+        obj[key] = value;
+      })
+      return obj;
+    }
+
+    //跳转到会员页
+    // $('.back').on('click',function () {
+    //   // window.location.href = `http://local.zephcard.com/h5/dist/#/memberManage?userId=${getSearch().userId}&token=${getSearch().token}`;
+    // })
+
+    function goHomepage() {
+      window.WebViewJavascriptBridge.callHandler(
+        'goHomepage',
+        {}
+      );
+    }
+
+
+  
+  </script>
+
+
+</html>

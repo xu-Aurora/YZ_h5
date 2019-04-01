@@ -1,0 +1,14 @@
+{
+    "entry": "src/index.js",
+    "publicPath": "/",
+    "extraBabelPlugins": [
+        ["import", { "libraryName": "antd-mobile","style": "css" }]
+    ],
+    "proxy": {
+      "/": {
+        "target": "http://local.zephcard.com",
+        "changeOrigin": true,
+        "secure": false
+      }
+    }
+}

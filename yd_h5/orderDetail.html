@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+	    <meta http-equiv="cache-control" content="max-age=0"/>
+	    <meta http-equiv="cache-control" content="no-cache"/>
+	    <meta http-equiv="pragma" content="no-cache"/>
+	    <meta http-equiv="expires" content="0"/>
+	    <meta name="format-detection" content="telephone=no"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=contain">
+		<link rel="stylesheet" type="text/css" href="./assets/css/normalize.css"/>
+    <link rel="stylesheet/less" type="text/css" href="./assets/css/orderDetail.less">
+    
+    <script src="./assets/js/rem.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./assets/js/less.min.js" ></script>
+		<title>订单详情</title>
+	</head>
+	<body>
+    <div class="container">
+      <!-- 头部 -->
+        <header class="header">
+            <div class="header_close">
+              <img class="goCart" src="./assets/img/close.png" alt="">
+            </div>
+            <div class="header_title">
+              订单详情
+            </div>
+        </header>
+
+      <!-- 支付成功 -->
+      <div class="paySucceed">
+        <div>
+          <img src="./assets/img/zzzz.png" alt="">
+        </div>
+        <div>支付成功</div>
+      </div>
+
+    <!-- 订单编号 -->
+      <div class="orderNo">
+        <div class="left">订单编号</div>
+        <div class="right">JK299100399200002</div>
+      </div>
+
+    <div class="btn">
+      <div class="goOrderlist">查看订单</div>
+      <div onclick="goHomepage()" class="goHomepage">返回首页</div>
+    </div>
+
+    </div>
+
+
+  </body>
+  <script src="./assets/js/jquery-3.0.0.min.js"></script>
+
+
+  <script>
+
+
+    // var domain = `http://local.zephcard.com`;  //测试域名
+    var domain = `http://www.jiayuanplus.com`;  //线上域名(接口)
+    // var domain = `http://business.zephcard.com`;   //线上域名(跳转)
+
+
+    //获取url后面的参数
+    function getSearch() {
+      var str = location.search;
+      search = decodeURI(str);
+      search = str.slice(1);
+      var arr = search.split("&");
+      var obj = {};
+      arr.forEach(function (e, i) {
+        var key = e.split("=")[0];
+        var value = e.split("=")[1];
+        obj[key] = value;
+      })
+      return obj;
+    }
+
+    $('.orderNo').find('.right').text(getSearch().origOrderNo);
+    
+
+    $('.goCart').on('click',function () {
+      goCart(getSearch().type);
+    })
+    function goCart() {
+      window.WebViewJavascriptBridge.callHandler(
+        'goHomepage',
+        {}
+      );
+
+    }
+    function goHomepage() {
+      window.WebViewJavascriptBridge.callHandler(
+        'goHomepage',
+        {}
+      );
+
+    }
+
+
+
+
+    $('.goOrderlist').on('click',function () {
+      window.location.href = `${domain}/h5/dist/#/myOrder?userId=${getSearch().userId}&token=${getSearch().token}&userName=${getSearch().userName}&userPhone=${getSearch().userPhone}`;
+    })
+  </script>
+</html>

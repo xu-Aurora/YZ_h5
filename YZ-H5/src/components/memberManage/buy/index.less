@@ -1,0 +1,263 @@
+.box{
+    width: 100%;
+    background: #FFFFFF;
+    .header{
+        height: 42/12rem;
+        line-height: 42/12rem;
+        position: relative;
+        text-align: center;
+        .header_title{
+            font-size: 18/12rem;
+            color: #2b2b2b;
+            background: #FFFFFF;
+        }
+        .header_btn{
+            height: 42/12rem;
+            position: absolute;
+            left: 0;
+            padding-left: 12/12rem;
+            box-sizing: border-box;
+            top: 0;
+            color: #5b5b5b;
+            display: flex;
+            align-items: center;
+            img{
+                width: 20/12rem;
+                height: 20/12rem;
+            }
+        }
+    }
+    .content{
+        max-height: 82vh;
+        overflow-y: auto;
+    }
+    @media screen and (min-height: 800px) {
+        .content{
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+    }
+    .amount{
+        padding-top: 12/12rem;
+        box-sizing: border-box;
+        padding: 12/12rem 12/12rem 0;
+        box-sizing: border-box;
+        height: 100/12rem;
+        background: #FFFBF0;
+        margin-bottom: 32/12rem;
+        .amount_headline{
+            color: #604E21;
+            font-size: 14/12rem;
+            margin-bottom: 10/12rem;
+        }
+        .amount_box{
+            display: flex;
+            .amount_Progress{
+                flex: 1;
+                .Progress{
+                    position: relative;
+                    height: 8/12rem;
+                    >div:nth-child(1){
+                        width: 100%;
+                        background: #E5E5E5;
+                        height: 8/12rem;
+                        position: absolute;
+                        z-index: 1;
+                    }
+                    >div:nth-child(2){
+                        background: #E4C58F;
+                        opacity: .4;
+                        height: 8/12rem;
+                        position: absolute;
+                        z-index: 3;
+                    }
+                    >div:nth-child(3){
+                        background:  linear-gradient(#EBD19E, #D4AF70);
+                        height: 8/12rem;
+                        position: absolute;
+                        z-index: 2;
+                    }
+                }
+                .amount_upgrade{
+                    font-size: 10/12rem;
+                    color: #604E21;
+                    margin-bottom: 4/12rem; 
+                }
+                .amount_lable{
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 10/12rem;
+                    color: #604E21;
+                    margin-top: 6/12rem;
+                }
+            }
+            .amount_img{
+                width: 20%;
+                text-align: center;
+                padding-top: 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .lable_icon{
+                    width: 28/12rem;
+                    height: 28/12rem;
+                    background: url(../../../assets/grade.png) no-repeat;
+                    background-size: 100% 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .icon_num{
+                        padding-left: 9/12rem;
+                        font-size: 8/12rem;
+                        color: #141414;
+                    }
+                }
+            }
+        }
+      
+    }
+    .reward{
+        font-size: 14/12rem;
+        padding-left: 12/12rem;
+        margin-bottom: 28/12rem;
+        span{
+            color: #CC9C2D;
+            font-size: 16/12rem;
+            
+        }
+    }
+
+    .giftBag{
+        text-align: center;
+        background: url(../../../assets/Group8.png) no-repeat;
+        background-size: cover;
+        padding-top: 12/12rem;
+        box-sizing: border-box;
+        position: relative;
+        .giftBag_shape{
+            width: 15/12rem;
+            position: absolute;
+            top: -16/12rem;
+            left: 70/12rem;
+            img{
+                width: 100%;
+            }
+        } 
+        .giftBag_headline{
+            color: #FFFBF0;
+            font-size: 14/12rem;
+            margin-bottom: 12/12rem;
+        }
+        .giftBag_list{
+            overflow: hidden;
+            .giftBag_detail{
+                width: 33.33%;
+                float: left;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 19/12rem;
+                img{
+                    width: 32/12rem;
+                    height: 32/12rem;
+                    margin-bottom: 8/12rem;
+                }
+                span{
+                    color: #FFFBF0;
+                    font-size: 12/12rem;
+                }
+            }
+        }
+    }
+
+    .choice{
+        padding: 16/12rem 12/12rem 0 ;
+        box-sizing: border-box;
+        margin-bottom: 16/12rem;
+        .choice_title{
+            font-size: 14/12rem;
+            margin-bottom: 8/12rem;
+            text-align: left;
+        }
+        .choice_list{
+            background: url('../../../assets/Group7.png') no-repeat;
+            height: 54/12rem;
+            background-size: cover;
+            margin-bottom: 8/12rem;
+            box-sizing: border-box;
+            display: flex;
+            .choice_detail{
+                flex: 1;
+                display: flex;
+                color: #604E21;
+                font-size: 14/12rem;
+                align-items: center;
+                padding: 0 12/12rem;
+                height: 100%;
+                >div:nth-child(1) {
+                    text-align: left;
+                    flex: 2;
+                    overflow: hidden;
+                }
+                >div:nth-child(2) {
+                    text-align: right;
+                    flex: 1;
+                }
+            }
+           
+            .choice_checked{
+                width: 72/12rem;
+                display: flex;
+                align-items: center;
+                .choice_line{
+                    width: 2/12rem;
+                    height: 30/12rem;
+                    background: #604E21;
+                }
+                .choice_radio{
+                   margin-left: 30/12rem; 
+                   width: 18/12rem;
+                   img{
+                       width: 100%;
+                   }
+                }
+            }
+        }
+    }
+    .pay{
+        width: 100%;
+        height: 49/12rem;
+        line-height: 49/12rem;
+        text-align: center;
+        background: linear-gradient(#372416, #453722);
+        color: #E4C58F;
+        font-size: 16/12rem;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+    }
+    .blank{
+        height: 66/12rem; 
+    }
+    .explain{
+        font-size: 10/12rem;
+        width: 100%;
+
+        text-align: center;
+        color: #8B8B8B;
+        position: fixed;
+        bottom: 49/12rem;
+        height: 26/12rem;
+        background: #fff;
+        line-height: 26/12rem; 
+    }
+   :global{
+        .am-progress-bar {
+            height: 8/12rem !important;
+            border-radius: 4px; 
+            background:  linear-gradient(#EBD19E, #D4AF70);
+            border: none;
+        }
+      
+   }
+}

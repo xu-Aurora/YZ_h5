@@ -1,0 +1,229 @@
+.box{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #FFFFFF;
+    .header{
+        height: 42/12rem;
+        line-height: 42/12rem;
+        position: relative;
+        text-align: center;
+        .header_title{
+            font-size: 18/12rem;
+            color: #2b2b2b;
+            background: #FFFFFF;
+        }
+        .header_btn{
+            height: 42/12rem;
+            position: absolute;
+            left: 0;
+            padding-left: 12/12rem;
+            box-sizing: border-box;
+            top: 0;
+            color: #5b5b5b;
+            display: flex;
+            align-items: center;
+            img{
+                width: 20/12rem;
+                height: 20/12rem;
+            }
+        }
+    }
+    .package{
+        text-align: center;
+        padding-top: 12/12rem;
+        box-sizing: border-box;
+        .package_headline{
+            margin: 0 auto;
+            width: 226/12rem;
+            height: 38/12rem;
+            line-height: 38/12rem;
+            background: linear-gradient(#372416, #453722);
+            border-radius: 19/12rem;
+            box-sizing: border-box;
+            font-size: 18/12rem;
+            color:#FFFBF0;
+            margin-bottom: 12/12rem;
+        }
+        .price{
+            background: #FFFBF0;
+            padding: 12/12rem 12/12rem 0 ;
+            box-sizing: border-box;
+            margin-bottom: 16/12rem;
+            .price_list{
+                margin-bottom: 16/12rem;
+                overflow: hidden;
+                >div{
+                    width: 80/12rem;
+                    height: 40/12rem;
+                    line-height: 40/12rem;
+                    border: 1px solid #CC9C2D;
+                    color: #604E21;
+                    font-size: 14/12rem;
+                    float: left;
+                    margin-right: 10/12rem;
+                    border-radius: 4px;
+                    box-sizing: border-box;
+                    margin-bottom: 16/12rem;
+                }
+                >div:nth-child(4n+4){
+                    margin-right: 0; 
+                }
+                .list_in{
+                    background: linear-gradient(#EBD19E,#D4AF70);
+                }
+            }
+            .price_list:last-child{
+                margin-bottom: 0; 
+            }
+        }
+        .reward{
+            font-size: 14/12rem;
+            padding-left: 12/12rem;
+            text-align: left;
+            margin-bottom: 16/12rem;
+            span{
+                color: #CC9C2D;
+                font-size: 16/12rem;
+                
+            }
+        }
+        .ticket_flow{
+            max-height: 48vh;
+            overflow-y: auto;
+        }
+        @media screen and (min-height: 800px) {
+            .ticket_flow{
+                max-height: 60vh;
+                overflow-y: auto;
+            }
+        }
+        .ticket{
+            padding: 12/12rem 12/12rem 0 ;
+            box-sizing: border-box;
+            margin-bottom: 12/12rem;
+            .ticket_list{
+                background: url('../../../assets/Group7.png') no-repeat;
+                height: 67/12rem;
+                background-size: cover;
+                margin-bottom: 8/12rem;
+                padding:  12/12rem 12/12rem 0;
+                box-sizing: border-box;
+
+                .ticket_detail{
+                    display: flex;
+                    margin-bottom: 6/12rem;
+                    color: #604E21;
+                    font-size: 14/12rem;
+                    height: 20px;
+                    line-height: 20px;
+                    >div{
+                        flex: 1;
+                    }
+                    >div:nth-child(1) {
+                        text-align: left;
+                    }
+                    >div:nth-child(2) {
+                        text-align: right;
+                    }
+                }
+                .ticket_explain{
+                    text-align: left;
+                    color: #604E21;
+                    font-size: 12/12rem;
+                }
+            }
+        }
+        .choice{
+            padding: 12/12rem 12/12rem 0 ;
+            box-sizing: border-box;
+            margin-bottom: 12/12rem;
+            .choice_title{
+                font-size: 14/12rem;
+                margin-bottom: 8/12rem;
+                text-align: left;
+            }
+            .choice_list{
+                background: url('../../../assets/Group7.png') no-repeat;
+                height: 54/12rem;
+                background-size: cover;
+                margin-bottom: 8/12rem;
+                box-sizing: border-box;
+                .choice_detail{
+                    display: flex;
+                    color: #604E21;
+                    font-size: 14/12rem;
+                    align-items: center;
+                    padding: 0 12/12rem;
+                    height: 100%;
+                    >div{
+                        flex: 1;
+                    }
+                    >div:nth-child(1) {
+                        text-align: left;
+                    }
+                    >div:nth-child(2) {
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+    .blank{
+        height: 49/12rem; 
+    }
+    .pay{
+        width: 100%;
+        height: 49/12rem;
+        line-height: 49/12rem;
+        text-align: center;
+        background: linear-gradient(#372416, #453722);
+        color: #E4C58F;
+        font-size: 16/12rem;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+    }
+    .model{
+        height: 100vh;
+        top: 0;
+        width: 100%;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        position: fixed;
+        .model_shade{
+            height: 100vh;
+            background: black;
+            opacity: 0.6;        
+        }
+        .model_content{
+            width: 311/12rem;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 50%;
+            margin-left: -311/2/12rem; 
+            .model_close{
+                width: 40px;
+                height: 40px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img{
+                    width: 16/12rem;
+                    height: auto;
+                }
+            }
+            img{
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+        }    
+      
+    }
+}

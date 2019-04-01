@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+	    <meta http-equiv="cache-control" content="max-age=0"/>
+	    <meta http-equiv="cache-control" content="no-cache"/>
+	    <meta http-equiv="pragma" content="no-cache"/>
+	    <meta http-equiv="expires" content="0"/>
+	    <meta name="format-detection" content="telephone=no"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=contain">
+		<link rel="stylesheet" type="text/css" href="./assets/css/normalize.css"/>
+    <link rel="stylesheet" href="./assets/icomfont/iconfont.css">
+    <link rel="stylesheet/less" type="text/css" href="./assets/css/deliveryWay.less">
+    <script src="./assets/js/rem.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./assets/js/less.min.js" ></script>
+		<title>新增地址</title>
+	</head>
+	<body>
+    <div class="container">
+      <!-- 头部 -->
+        <header class="header">
+            <div class="header_close">
+              <img src="./assets/img/gb.png" alt="">
+            </div>
+            <div class="header_title">
+              配送方式
+            </div>
+        </header>
+
+        <div class="content">
+          <!-- <p>本订单由物业配送上门</p>
+          <div class="btn">
+            <div data-way="1" class="left">送货上门</div>
+            <div data-way="2" class="right">上门自取</div>
+          </div>
+
+          <div class="visit">
+                <div class="deliveryDate">
+                  <p>期望配送日期</p>
+                  <ul>
+                    <li>
+                      <p>10月11日</p>
+                      <p>周三</p>
+                    </li>
+                    <li>
+                      <p>10月12日</p>
+                      <p>周四</p>
+                    </li>
+                    <li>
+                        <p>10月13日</p>
+                        <p>周五</p>
+                    </li>
+                    <li>
+                        <p>10月14日</p>
+                        <p>周六</p>
+                    </li>
+                  </ul>
+                </div>
+                <div class="deliveryTime">
+                    <p>期望配送时间</p>
+                    <ul>
+                      <li>
+                        <p>上午 09:00-11:00</p>
+                      </li>
+                      <li>
+                        <p>中午 11:00-13:00</p>
+                      </li>
+                      <li>
+                        <p>下午 13:00-16:00</p>
+                      </li>
+                      <li>
+                        <p>傍晚16:00-19:00</p>
+                      </li>
+                    </ul>
+                </div>
+                <div class="deliveryCost">
+                  <div>配送费用</div>
+                  <div>免邮</div>
+                </div>
+          </div>
+
+          <div class="status2">
+              <p>配送日期</p>
+              <div>预计XX月XX日开始配送</div>
+          </div>
+
+          <div class="selfFetch">
+            <ul>
+              <li>
+                <div>取货时间</div>
+                <div>10月12日(周四) 12:00后自取</div>
+              </li>
+              <li>
+                <div>取货地址</div>
+                <div class="getAddress">选择离我最近的自取点</div>
+              </li>
+            </ul>
+            <div class="wei">
+                <input type="text" placeholder="搜索离你最近的佳源社区选择自取点">
+            </div>
+
+            <div class="address">
+              <ul>
+                <li>
+                  <div>嘉兴罗马都市A区12号楼1楼物业服务处</div>
+                  <div><img src="./assets/img/hyq.png" alt=""></div>
+                </li>
+                <li>
+                  <div>嘉兴罗马都市A区12号楼1楼物业服务处</div>
+                  <div><img src="./assets/img/yq.png" alt=""></div>
+                </li>
+                <li>
+                  <div>嘉兴罗马都市A区12号楼1楼物业服务处</div>
+                  <div><img src="./assets/img/yq.png" alt=""></div>
+                </li>
+              </ul>
+            </div>
+            
+          </div> -->
+
+        </div>
+
+      <!-- 错误提示 -->
+      <div class="failTips">
+        <div class="iconfont icon-guanbi"></div>
+        <p>报错!!!!</p>
+      </div>
+
+
+      <footer>
+        <!-- <input class="bottom" type="button" disabled="disabled" value="确定"> -->
+        <input class="bottom" type="button" value="确定">
+      </footer>
+    </div>
+    <!-- 底部 -->
+
+
+    <script type="text/template" id="tmp-data">
+      <!-- <p>本订单由物业配送上门</p> -->
+      <div class="btn">
+        <div data-way="1" class="left">送货到家</div>
+        <div data-way="3" class="right">上门自取</div>
+      </div>
+
+      <div class="visit">
+            <div class="deliveryDate">
+              <p>配送日期</p>
+              <ul>
+                {{each dateList $v $i}}
+                  <li data-index={{$i}}>
+                    <p>{{$v}}</p>
+                  </li>
+                {{/each}}
+              </ul>
+            </div>
+            <div class="deliveryTime">
+                <p>配送时间</p>
+                <ul>
+                    <li>
+                      <p>上午&nbsp;09:00-11:00</p>
+                    </li>
+                    <li>
+                      <p>中午&nbsp;11:00-13:00</p>
+                    </li>
+                    <li>
+                      <p>下午&nbsp;13:00-16:00</p>
+                    </li>
+                    <li>
+                      <p>傍晚&nbsp;16:00-19:00</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="deliveryCost">
+              <div>配送费用</div>
+              <div>免邮</div>
+            </div>
+      </div>
+
+      <div class="status2">
+          <p>配送日期</p>
+          <div>预计XX月XX日开始配送</div>
+      </div>
+
+      <div class="selfFetch">
+        <ul>
+          <!-- <li>
+            <div>取货时间</div>
+            <div>10月12日(周四) 12:00后自取</div>
+          </li>
+          <li>
+            <div>取货地址</div>
+            <div class="getAddress">选择离我最近的自取点</div>
+          </li> -->
+        </ul>
+        <div class="wei">
+            <input type="text" id="inp" oninput="oninput1()" placeholder="搜索离你最近的佳源社区选择自取点">
+        </div>
+
+        <div class="address">
+          <ul>
+            <!-- <li>
+              <div>嘉兴罗马都市A区12号楼1楼物业服务处</div>
+              <div><img src="./assets/img/hyq.png" alt=""></div>
+            </li>
+            <li>
+              <div>嘉兴罗马都市A区12号楼1楼物业服务处</div>
+              <div><img src="./assets/img/yq.png" alt=""></div>
+            </li>
+            <li>
+              <div>嘉兴罗马都市A区12号楼1楼物业服务处</div>
+              <div><img src="./assets/img/yq.png" alt=""></div>
+            </li> -->
+          </ul>
+        </div>
+        
+      </div>
+    </script>
+
+    <script type="text/template" id="tmp-data1">
+      <li>
+        <div>取货时间</div>
+        <div class="takeTime">{{dateStr}}</div>
+      </li>
+      <li>
+        <div>取货地址</div>
+        <div class="getAddress">选择离我最近的自取点</div>
+      </li>
+    </script>
+
+
+  </body>
+
+  <script src="./assets/js/jquery-3.0.0.min.js"></script>
+
+  <script src="./assets/js/template-web.js"></script>
+
+  <script>
+
+    //线上域名  www.jiayuanplus.com
+    //测试域名  http://local.zephcard.com
+    var domain =  `local.jiayuanplus.com`;
+
+
+    var data_visit;//送货上门数据
+    var data_self;//上门自取数据
+    var data_address;//地址
+    var delivery_way = 1;//配送方式
+
+    var defaultDeliveryTime = ''; //默认配送时间
+
+    var delivery_date = ''; //选中的配送日期
+    var delivery_time = ''; //选中的配送时间
+
+    var firstAddressId; //上门自取,第一个地址的id值
+    var firstAddressName; //上门自取,第一个地址的name值
+
+    var parmas = JSON.parse(localStorage.getItem('parmas'));
+    var goodIDs = JSON.parse(localStorage.getItem('goodIDs'));
+    var pick = JSON.parse(localStorage.getItem('pick'));  //是否支持自取
+
+    var deliveryData = JSON.parse(sessionStorage.getItem('delivery_way'));
+
+    //获取页面数据
+    function ajaxData() {
+      $.ajax({
+        url:`../../mall/order/mng/getDeliveryTime`,  //线上环境
+        // url:`http://r17753n223.51mypc.cn:9090/mall/order/mng/getDeliveryTime`, //外网访问本地环境
+        // url:`http://local.zephcard.com/mall/order/mng/getDeliveryTime`, //测试环境
+        type: 'POST', 
+        data: {
+          userId: parmas ? parmas.userId : 'HY201811220948231855',
+          type: '1',
+          goodIds: goodIDs.join(','),
+          apiName: 'mall.order.mng.getDeliveryTime',
+          merchantCode: '0001',
+          token: parmas ? parmas.token : '46ee04d8-bc50-497e-bc43-ac9ec47eb426'
+        },
+        success:function (data) {
+          if(data.code == '200'){
+            data_visit = data.data;
+
+            var html = template('tmp-data',data.data);
+            $('.content').html(html);
+
+            if(pick == '2') { //不允许上门自取
+              $('.content').find('.btn .right').css('display','none');
+            }
+
+            if(data_visit.status == '1'){
+              $('.content').find('.visit').css('display','block');
+              $('.content').find('.status2').css('display','none');
+
+            }else{  //不让选择配送时间,用默认配送时间
+              defaultDeliveryTime = data_visit.dateStr;
+              $('.status2 div').text(data_visit.dateStr);
+              $('.content').find('.visit').css('display','none');
+              $('.content').find('.status2').css('display','block');
+
+              // $('.bottom').removeAttr("disabled");
+              $('.bottom').css('background','linear-gradient(#FDD60C, #FFB40B)');
+            }
+             //返回页面显示原来选中的数据
+            if(deliveryData){
+              delivery_way = deliveryData.delivery_way;
+
+              $('.btn').find('div').each(function (index,item) {
+                if($(item).text() == deliveryData.wayInfo){
+                  $(item).css('background','linear-gradient(#FDD60C, #FFB40B)');
+                  $('.bottom').css('background','linear-gradient(#FDD60C, #FFB40B)');
+                  // $('.bottom').removeAttr("disabled");
+                }else{
+                  $(item).css('background','#FFFBF0');
+                }
+              })
+
+
+              if(deliveryData.way == '1') { //送货到家
+                if(data_visit.status == '1'){ //可以选择时间与日期
+                  $('.selfFetch').css('display','none');
+                  $('.visit').css('display','block');
+                  delivery_way == 1;
+
+                  if(data.data.dateList[0] == deliveryData.delivery_date){  //选中的是第一个
+                    var lis = data_visit.deliveryTimes.map(function (item) {
+                      return (
+                        "<li>"+
+                          "<p>"+item+"</p>"
+                        +"</li>"
+                      )
+                    });
+                    $('.content .deliveryTime ul').html(
+                      lis
+                    )
+                  }else{
+                    $('.content .deliveryTime ul').html(
+                      "<li>"+
+                        "<p>上午&nbsp;09:00-11:00</p>"
+                      +"</li>"+
+                      "<li>"+
+                        "<p>中午&nbsp;11:00-13:00</p>"
+                      +"</li>"+
+                      "<li>"+
+                        "<p>下午&nbsp;13:00-16:00</p>"
+                      +"</li>"+
+                      "<li>"+
+                        "<p>傍晚&nbsp;16:00-19:00</p>"
+                      +"</li>"
+                    )
+                  }
+
+                  data.data.dateList.forEach(function (item) {
+                    if(item == deliveryData.delivery_date) {
+                      $('.deliveryDate').find('li').each(function (index,item) {
+
+                        if($(item).find('p').text() == deliveryData.delivery_date){
+                          delivery_date = deliveryData.delivery_date;
+                          $(item).css('background','linear-gradient(#FDD60C, #FFB40B)');
+                        }
+
+                        
+                      })
+                    }
+                  })
+                  data.data.dateList.forEach(function (item) {
+                    if(item == deliveryData.delivery_date) {
+                      $('.deliveryTime').find('li').each(function (index,item) {
+                        if($(item).find('p').text() == deliveryData.delivery_time){
+                          delivery_time = deliveryData.delivery_time;
+                          $(item).css('background','linear-gradient(#FDD60C, #FFB40B)');
+                          // $('.bottom').removeAttr("disabled");
+                        }
+                      })
+                    }
+                  })
+                }else{  //不让选择时间与日期,使用默认日期时间
+                  $('.selfFetch').css('display','none');
+                  $('.visit').css('display','none');
+                  $('.content').find('.status2').css('display','block');
+
+                  $('.btn .left').css('background','linear-gradient(#FDD60C, #FFB40B)')
+
+                  // $('.bottom').removeAttr("disabled");
+                  $('.bottom').css('background','linear-gradient(#FDD60C, #FFB40B)');
+
+                }
+
+              }
+              if(deliveryData.way == '3') {
+                $('.selfFetch').css('display','block');
+                $('.visit').css('display','none');
+                // $('.bottom').removeAttr("disabled");
+                delivery_way == 3;
+                $.ajax({
+                  url:`../../mall/order/mng/getDeliveryTime`,
+                  // url:`http://r17753n223.51mypc.cn:9090/mall/order/mng/getDeliveryTime`, //外网访问本地环境
+                  // url:`http://local.zephcard.com/mall/order/mng/getDeliveryTime`, //测试环境
+                  type: 'POST',
+                  data: {
+                    userId: parmas.userId,
+                    type:'2',
+                    goodIds: goodIDs.join(','),
+                    apiName: 'mall.order.mng.getDeliveryTime',
+                    merchantCode: '0001',
+                    token: parmas ? parmas.token : '46ee04d8-bc50-497e-bc43-ac9ec47eb426'
+                  },
+                  success:function (data) {
+                    if(data.code == '200'){
+                      data_self = data.data;
+                      var html = template('tmp-data1',data.data);
+                      $('.selfFetch>ul').html(html);
+                      getAddress();
+                    }else{
+                      $('.failTips p').text(data.message);
+                      $('.failTips').css('display','block');
+
+                      setTimeout(function (params) {
+                        $('.failTips').css('display','none');
+                      },2000)
+                      
+                    }
+                  }
+                })
+              }
+
+              if(deliveryData.delivery_dateTime){
+                $('.bottom').css('background','linear-gradient(#FDD60C, #FFB40B)');
+              }
+
+              $('#inp').attr('addressid',deliveryData.address_id);
+              $('#inp').attr('name',deliveryData.address_name);
+
+
+
+            }
+            
+
+          }else{
+            $('.failTips p').text(data.message);
+            $('.failTips').css('display','block');
+
+            setTimeout(function (params) {
+              $('.failTips').css('display','none');
+            },2000)
+            
+          }
+          
+        }
+      })
+    }
+    ajaxData();
+
+
+
+    //获取取货地址
+    function getAddress() {
+      navigator.geolocation.getCurrentPosition(showPosition);
+      var latitude;
+      var longitude;
+      function showPosition(position){  //获取到经纬度
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+      }
+      $.ajax({
+          url: `../../mall/self/raising/findListByLatitudeAndLongitude`,
+          // url:`http://r17753n223.51mypc.cn:9090/mall/self/raising/findListByLatitudeAndLongitude`, //外网访问本地环境
+          // url:`http://local.zephcard.com/mall/self/raising/findListByLatitudeAndLongitude`, //测试环境
+          type: 'POST',
+          data: {
+            latitude: latitude,
+            longitude: longitude,
+            userId: parmas ? parmas.userId : 'HY201811220948231855',
+            apiName: 'mall.self.raising.findListByLatitudeAndLongitude',
+            merchantCode: '0001',
+            token: parmas ? parmas.token : '46ee04d8-bc50-497e-bc43-ac9ec47eb426'
+          },
+          success: function(data){
+            if(data.code == '200'){
+              data_address = data.data;
+              firstAddressId = data.data[0].id;
+              firstAddressName = data.data[0].name;
+              var address = data_address.map(function (item,i) {
+                  return (
+                    "<li>"+
+                      "<div class='adre'>"+item.name+"</div>"+
+                      "<div>"+"<img id='yq' data-addressid='"+item.id+"' data-name='"+item.name+"'  data-index='"+i+"' src='./assets/img/yq.png'>"+"</div>"
+                    +"</li>"
+                  )
+              })
+              $('.content .selfFetch .address ul').html(
+                address
+              );
+              if(deliveryData) {
+                gl();
+                if(deliveryData.way == '3') { //上门自取
+                  $('.selfFetch').css('display','block');
+                  $('.visit').css('display','none');
+                  delivery_way = 3;
+                  $('#inp').attr('value',deliveryData.address_name);
+
+                  $('.address li').each(function (index,item) {
+
+                    if($(item).find('.adre').text() == deliveryData.address_name) {
+                      $(item).find('img').attr('src','./assets/img/hyq.png');
+                      $('.bottom').css('background','linear-gradient(#FDD60C, #FFB40B)');
+                      // $('.bottom').removeAttr("disabled");
+                    }else{
+                      $(item).find('img').attr('src','./assets/img/yq.png');
+
+                    }
+
+                  })
+                }
+              }else{
+                gl();
+
+              }
+
+            }else{
+              $('.failTips p').text(data.message);
+              $('.failTips').css('display','block');
+
+              setTimeout(function (params) {
+                $('.failTips').css('display','none');
+              },2000)
+              
+            }
+          } 
+      })
+    }
+    getAddress();
+
+
+    //地址默认第一个高亮
+    function gl() {
+      if ($('.content #yq').length > 0) {
+        $('.content #yq')[0].setAttribute("src", "./assets/img/hyq.png");
+      }
+    }
+
+
+
+    //点击关闭
+    $('.header_close img').on('click',function () {
+      window.location.href = `./affirmOrder.html?userId=${parmas.userId}&optimizationIds=${parmas.optimizationIds}&selfSupportIds=${parmas.selfSupportIds}&addressId=${parmas.addressId}&token=${parmas.token}&userName=${parmas.userName}&userPhone=${parmas.userPhone}`;
+    })
+
+    //选择配送方式
+    $('.content').on('click','.btn div',function(){
+      $('.btn').find('div').css('background','#FFFBF0');
+      $(this).css('background','linear-gradient(#FDD60C, #FFB40B)');
+
+      var dataWay = $(this).data('way');
+
+      if(dataWay == 1){
+        delivery_way = 1; 
+        if(data_visit.status == '1'){
+          $('.content').find('.visit').css('display','block');
+          $('.content').find('.status2').css('display','none');
+
+          $.ajax({
+            url:`../../mall/order/mng/getDeliveryTime`,
+            // url:`http://r17753n223.51mypc.cn:9090/mall/order/mng/getDeliveryTime`, //外网访问本地环境
+            // url:`http://local.zephcard.com/mall/order/mng/getDeliveryTime`, //测试环境
+            type: 'POST',
+            data: {
+              userId: parmas ? parmas.userId : 'HY201811220948231855',
+              type:'1',
+              goodIds: goodIDs.join(','),
+              apiName: 'mall.order.mng.getDeliveryTime',
+              merchantCode: '0001',
+              token: parmas.token
+            },
+            success:function (data) {
+              if(data.code == '200'){
+                if(data_visit.status == '1'){
+                  $('.content').find('.visit').css('display','block');
+                  $('.content').find('.status2').css('display','none');
+                  var html = template('tmp-data',data.data);
+                  $('.content').html(html);
+                }else{
+                  $('.content').find('.visit').css('display','none');
+                  $('.content').find('.status2').css('display','block');
+                  $('.status2 div').text(data_visit.dateStr)
+                }
+              }else{
+                $('.failTips p').text(data.message);
+                $('.failTips').css('display','block');
+
+                setTimeout(function (params) {
+                  $('.failTips').css('display','none');
+                },2000)
+                
+              }
+            }
+          })   
+          $('.bottom').css('background','linear-gradient(#CFCFCF, #AFAFAF)');
+          // $('.bottom').attr("disabled","disabled");
+
+          $('.visit').css('display','block');
+          $('.selfFetch').css('display','none');
+
+          //切换配送送方式把选中的框清空
+          $('.address').find('img').attr('src','./assets/img/yq.png');
+          $('.deliveryDate').find('li').css('background','#FFFBF0');
+          $('.deliveryTime').find('li').css('background','#FFFBF0');
+
+        }
+        else{  //不让选择配送时间,用默认配送时间
+          defaultDeliveryTime = data_visit.dateStr;
+          $('.status2 div').text(data_visit.dateStr);
+          $('.content').find('.visit').css('display','none');
+
+          $('.selfFetch').css('display','none');
+
+          $('.content').find('.status2').css('display','block');
+
+          // $('.bottom').removeAttr("disabled");
+          $('.bottom').css('background','linear-gradient(#FDD60C, #FFB40B)');
+        }
+
+      }
+      if(dataWay == 3){
+        delivery_way = 3; 
+        $('.content').find('.status2').css('display','none');
+        $.ajax({
+          url:`../../mall/order/mng/getDeliveryTime`,
+          // url:`http://r17753n223.51mypc.cn:9090/mall/order/mng/getDeliveryTime`, //外网访问本地环境
+          // url:`http://local.zephcard.com/mall/order/mng/getDeliveryTime`, //测试环境
+          type: 'POST',
+          data: {
+            userId: parmas.userId,
+            type:'2',
+            goodIds: goodIDs.join(','),
+            apiName: 'mall.order.mng.getDeliveryTime',
+            merchantCode: '0001',
+            token: parmas ? parmas.token : '46ee04d8-bc50-497e-bc43-ac9ec47eb426'
+          },
+          success:function (data) {
+            if(data.code == '200'){
+              data_self = data.data;
+              var html = template('tmp-data1',data.data);
+              $('.selfFetch>ul').html(html);
+              getAddress();
+            }else{
+              $('.failTips p').text(data.message);
+              $('.failTips').css('display','block');
+
+              setTimeout(function (params) {
+                $('.failTips').css('display','none');
+              },2000)
+              
+            }
+          }
+        })
+
+        $('.bottom').css('background','linear-gradient(#FDD60C, #FFB40B)');
+        $('.bottom').removeAttr("disabled");
+        $('.selfFetch').css('display','block');
+        $('.visit').css('display','none');
+
+      }
+
+    })
+
+
+    
+    //上门自取->选择地址
+    $('.content').on('click','.address li',function(){
+      $('.address').find('img').attr('src','./assets/img/yq.png');
+      $(this).find('img').attr('src','./assets/img/hyq.png');
+
+      $('#inp').val($(this).find('img').data('name'));
+      $('#inp').attr('addressid',$(this).find('img').data('addressid'));
+      $('#inp').attr('name',$(this).find('img').data('name'));
+
+      firstAddressName = $('#inp').attr('name');
+      firstAddressId = $('#inp').attr('addressid');
+      
+      $('.bottom').removeAttr("disabled");
+    })
+
+    //选择配送日期
+    $('.content').on('click','.deliveryDate li',function(){
+      $('.deliveryDate').find('li').css('background','#FFFBF0');
+      $(this).css('background','linear-gradient(#FDD60C, #FFB40B)');
+      delivery_date = $(this).find('p').text();
+      if (delivery_time != '' && delivery_date != '') {
+        $('.bottom').css('background','linear-gradient(#FDD60C,#FFB40B)');
+        $('.bottom').removeAttr("disabled");
+        delivery_time = '';
+      }else{
+        $('.bottom').css('background','linear-gradient(#CFCFCF, #AFAFAF)');
+        // $('.bottom').attr("disabled","disabled");
+        delivery_time = '';
+      }
+      // $('.bottom').attr("disabled","disabled");
+      $('.bottom').css('background','linear-gradient(#CFCFCF, #AFAFAF)');
+
+      if($(this).data('index') == '0'){
+        var lis = data_visit.deliveryTimes.map(function (item) {
+          return (
+            "<li>"+
+              "<p>"+item+"</p>"
+            +"</li>"
+          )
+        });
+        $('.content .deliveryTime ul').html(
+          lis
+        )
+      }else{
+        $('.content .deliveryTime ul').html(
+          "<li>"+
+            "<p>上午&nbsp;09:00-11:00</p>"
+          +"</li>"+
+          "<li>"+
+            "<p>中午&nbsp;11:00-13:00</p>"
+          +"</li>"+
+          "<li>"+
+            "<p>下午&nbsp;13:00-16:00</p>"
+          +"</li>"+
+          "<li>"+
+            "<p>傍晚&nbsp;16:00-19:00</p>"
+          +"</li>"
+        )
+      }
+
+    })
+    //选择配送时间
+    $('.content').on('click','.deliveryTime li',function(){
+      $('.deliveryTime').find('li').css('background','#FFFBF0');
+      $(this).css('background','linear-gradient(#FDD60C, #FFB40B)');
+      delivery_time = $(this).find('p').text();
+      if (delivery_time != '' && delivery_date != '') {
+        $('.bottom').css('background','linear-gradient(#FDD60C, #FFB40B)');
+        $('.bottom').removeAttr("disabled");
+      }else{
+        $('.bottom').css('background','linear-gradient(#CFCFCF, #AFAFAF)');
+        // $('.bottom').attr("disabled","disabled");
+      }
+    })
+
+
+    //搜索匹配地址
+    function oninput1() {
+      var a = data_address.map(function (item) {
+        if (item.name.indexOf($('#inp').val()) != -1) {
+          return item.name+"-"+item.id;
+        }
+      })
+      var b = [];
+      a.forEach(function (item) {
+        if(item == undefined){
+
+        }else{
+          b.push(item)
+        }
+      })
+
+      var c = b.map(function (item,i) {
+          return (
+            "<li>"+
+              "<div>"+item.split('-')[0]+"</div>"+
+              "<div>"+"<img id='yq' data-addressid='"+item.split('-')[1]+"' data-name='"+item.split('-')[0]+"' data-index='"+i+"' src='./assets/img/yq.png'>"+"</div>"
+            +"</li>"
+          )
+      })
+      $('.content .selfFetch .address ul').html(
+        c
+      );
+      gl();
+
+      if($('#inp').val().length > 0){
+        $('.bottom').css('background','linear-gradient(#FDD60C, #FFB40B)');
+        $('.bottom').removeAttr("disabled");
+      }else{
+        $('.bottom').css('background','linear-gradient(#CFCFCF, #AFAFAF)');
+        // $('.bottom').attr("disabled","disabled");
+      }
+    }
+
+    //点击,获取自提点的经纬度
+    $('.content').on('click','.getAddress',function(){
+      navigator.geolocation.getCurrentPosition(showPosition);
+      var latitude;
+      var longitude;
+      function showPosition(position){  //获取到经纬度
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+      }
+      $.ajax({
+          url: `../../mall/self/raising/findListByLatitudeAndLongitude`,
+          // url:`http://r17753n223.51mypc.cn:9090/mall/self/raising/findListByLatitudeAndLongitude`, //外网访问本地环境
+          // url:`http://local.zephcard.com/mall/self/raising/findListByLatitudeAndLongitude`, //测试环境
+          type: 'POST',
+          data: {
+            latitude: latitude,
+            longitude: longitude,
+            apiName: 'mall.self.raising.findListByLatitudeAndLongitude',
+            merchantCode: '0001',
+            token: parmas.token
+          },
+          success: function(data){
+            if(data.code == '200'){
+              data_address = data.data;
+              var address = data_address.map(function (item,i) {
+                  return (
+                    "<li>"+
+                      "<div>"+item.address+"</div>"+
+                      "<div>"+"<img id='yq' data-addressid='"+item.id+"' data-index='"+i+"' src='./assets/img/yq.png'>"+"</div>"
+                    +"</li>"
+                  )
+              })
+              $('.content .selfFetch .address ul').html(
+                address
+              );
+              gl();
+            }else{
+              $('.failTips p').text(data.message);
+              $('.failTips').css('display','block');
+
+              setTimeout(function (params) {
+                $('.failTips').css('display','none');
+              },2000)
+              
+            }
+          } 
+      })
+    })
+
+    //点击确定,把选中的数据储存在本地
+    $('.bottom').on('click',function(){
+      var data = {};
+      if(data_visit.status == '1'){
+        if(deliveryData) {
+          
+          if(delivery_way == '1') {   //送货到家
+              data.way = '1';
+              data.delivery_way = '1';
+            if(data_visit.status == '1'){
+              data.delivery_dateTime = delivery_date+' '+delivery_time;
+              data.delivery_date = delivery_date;
+              data.delivery_time = delivery_time;
+              data.wayInfo = '送货到家';
+            }
+            if(data_visit.status == '2'){   
+              data.delivery_dateTime = $('.status2 div').text();
+            }
+            sessionStorage.setItem('delivery_way', JSON.stringify(data));
+          }
+          if(delivery_way == '3') {   //上门自取
+            data.way = '3';
+            data.delivery_way = '3';
+            data.delivery_dateTime = $('.takeTime').text();
+            data.address_id = $('#inp').attr('addressid') ? $('#inp').attr('addressid') : firstAddressId;
+            data.address_name = $('#inp').attr('name') ? $('#inp').attr('name') : firstAddressName;
+            data.wayInfo = '上门自取';
+            sessionStorage.setItem('delivery_way', JSON.stringify(data));
+          }
+
+        }else {
+          if(delivery_way == 1){
+              data.way = '1';
+              data.delivery_way = '1';
+            if(data_visit.status == '1'){
+              data.delivery_dateTime = delivery_date+' '+delivery_time;
+              data.delivery_date = delivery_date;
+              data.delivery_time = delivery_time;
+              data.wayInfo = '送货到家';
+            }
+            if(data_visit.status == '2'){
+              data.delivery_dateTime = $('.status2 div').text();
+            }
+            sessionStorage.setItem('delivery_way', JSON.stringify(data));
+          }
+          if(delivery_way == 3){
+            data.way = '3';
+            data.delivery_way = '3';
+            data.delivery_dateTime = $('.takeTime').text();
+            data.address_id = firstAddressId ? firstAddressId : $('#inp').attr('addressid');
+            data.address_name = firstAddressName ? firstAddressName : $('#inp').attr('name');
+            data.wayInfo = '上门自取';
+            sessionStorage.setItem('delivery_way', JSON.stringify(data));
+          }
+        }
+      }else{
+        if(delivery_way == 1) {
+          data.way = '1';
+          data.delivery_dateTime = defaultDeliveryTime;
+          sessionStorage.setItem('delivery_way', JSON.stringify(data));
+
+        }
+        if(delivery_way == 3) {
+            data.way = '3';
+            data.delivery_way = '3';
+            data.delivery_dateTime = $('.takeTime').text();
+            data.address_id = firstAddressId;
+            data.address_name = firstAddressName;
+            data.wayInfo = '上门自取';
+            sessionStorage.setItem('delivery_way', JSON.stringify(data));
+
+        }
+      }
+
+      if(delivery_time != '' && delivery_date != ''){
+        window.location.href = `./affirmOrder.html?userId=${parmas.userId}&optimizationIds=${parmas.optimizationIds}&selfSupportIds=${parmas.selfSupportIds}&addressId=${parmas.addressId}&token=${parmas.token}&userName=${parmas.userName}&userPhone=${parmas.userPhone}`;
+      }
+    })
+
+
+
+  </script>
+</html>

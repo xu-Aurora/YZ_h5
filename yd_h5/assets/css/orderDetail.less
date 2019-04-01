@@ -1,0 +1,120 @@
+.body {
+  padding-top: constant(safe-area-inset-top);   //为导航栏+状态栏的高度 88px            
+  padding-left: constant(safe-area-inset-left);   //如果未竖屏时为0                
+  padding-right: constant(safe-area-inset-right); //如果未竖屏时为0                
+  padding-bottom: constant(safe-area-inset-bottom);//为底下圆弧的高度 34px     
+}
+
+
+.container {
+  width: 100%;
+  color: #5B5B5B;
+  //头部
+  .header{
+    height: 42/12rem;
+    line-height: 42/12rem;
+    position: relative;
+    text-align: center;
+    // border-bottom: 1/12rem solid #E5E5E5;
+    .header_close{
+        width: 10/12rem;
+        height: 10/12rem;
+        cursor: pointer;
+        position: absolute;
+        left: 1rem;
+
+        img {
+          width: 12/12rem;
+          height: 12/12rem;
+          color: #191919;
+        }
+    }    
+    .header_title{
+        font-size: 18/12rem;
+        color: #191919;
+        flex: 1;
+        font-weight: bold;
+    }
+  }
+
+  .paySucceed {
+    height: 155/12rem;
+    text-align: center;
+    padding-top: 45/12rem;
+    box-sizing: border-box;
+
+    div:nth-child(1) {
+      margin-bottom: 21/12rem;
+      width: 100%;
+      img {
+        width: 50/12rem;
+        height: 50/12rem
+      }
+    }
+
+    div:nth-child(2) {
+      width: 100%;
+      font-size: 16/12rem;
+    }
+  }
+
+  .orderNo {
+    height: 56/12rem;
+    position: relative;
+    border-bottom: 1/12rem solid #E9E9E9;
+
+    .left {
+      position: absolute;
+      left: 17/12rem;
+      bottom: 24/12rem;
+      font-size: 14/12rem;
+    }
+    .right {
+      position: absolute;
+      right: 17/12rem;
+      bottom: 24/12rem;
+      font-size: 12/12rem;
+    }
+  }
+
+  .btn {
+    height: 213/12rem;
+
+    div {
+      cursor: pointer;
+      background:-webkit-linear-gradient(#FDD60C,#FFB40B);
+      background:-o-linear-gradient(#FDD60C,#FFB40B);
+      background:-moz-linear-gradient(#FDD60C,#FFB40B);
+      background:linear-gradient(#FDD60C,#FFB40B);
+      font-size: 14/12rem;
+      width: 243/12rem;
+      height: 46/12rem;
+      border-radius: 5/12rem;;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 66/12rem;
+    }
+
+    div:nth-child(1) {
+      margin-top: 24/12rem;
+      margin-bottom: 18/12rem;
+    }
+  }
+
+
+
+
+
+  //底部
+  .bottom {
+    height: 160/12rem;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    cursor: pointer;
+    background-color: #FDD60C;
+
+  }
+  
+}

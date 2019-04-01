@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="cache-control" content="max-age=0"/>
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta http-equiv="expires" content="0"/>
+    <meta name="format-detection" content="telephone=no"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=contain">
+		<link rel="stylesheet" type="text/css" href="./assets/css/normalize.css"/>
+    <link rel="stylesheet" href="./assets/icomfont/iconfont.css">
+    <link rel="stylesheet/less" type="text/css" href="./assets/css/affirmOrder.less">
+    
+    <script src="./assets/js/rem.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./assets/js/less.min.js" ></script>
+    <script src="./assets/js/jquery-3.0.0.min.js"></script>
+    <script src="./assets/js/template-web.js"></script>
+
+		<title>确认订单</title>
+	</head>
+	<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header class="header">
+            <div class="header_close">
+              <img onclick="back()" src="./assets/img/left.png" alt="">
+            </div>
+            <div class="header_title">
+              确认订单
+            </div>
+        </header>
+
+        <div class="contet">
+          <!-- <div class="address">
+            <p>嘉兴罗马都市 12栋2单元304室</p>
+            <p>
+              <span>
+                佳源
+              </span>
+              <span>张某某</span>
+              <span>18888888888</span>
+            </p>
+            <div>
+              <img class="goAddress" src="./assets/img/right1.png" alt="">
+            </div>
+          </div>
+          <div class="sd"></div>
+
+          <div class="jiayuan-order">
+            <div class="store">
+              <img src="./assets/img/bb.png" alt=""> 
+              <div>佳源自营</div>
+            </div>
+            <ul>
+              <li>
+                <div>
+                    <img src="./assets/img/矩形3拷贝@3x.png" alt="">
+                </div>
+                
+                <div>
+                  <p>泰国进口龙眼 精选一级果1kg装 新礼盒装</p>
+                  <p>颜色:白色,尺码:XL</p>
+                  <div>
+                    <span>&yen;</span>
+                    <span>28.9</span>
+                    <span>×</span>
+                    <span>10</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div class="deliveryWay">
+              <div class="left">配送方式</div>
+              <div class="right">
+                <p>物业配送到家 免邮</p>
+                <p>12月12日(周五)09:00-12:00</p>
+                <img src="./assets/img/right1.png" alt="">
+              </div>
+            </div>
+            <div class="remark">
+              <span>备注</span>
+              <input type="text" placeholder="请优先与卖家协商确认">
+            </div>
+          </div>
+          <div class="yuezhan-order">
+            <div class="store">
+              <img src="./assets/img/bb.png" alt=""> 
+              <div>佳源自营</div>
+            </div>
+            <ul>
+              <li>
+                <div>
+                    <img src="./assets/img/矩形3拷贝@3x.png" alt="">
+                </div>
+                
+                <div>
+                  <p>泰国进口龙眼 精选一级果1kg装 新礼盒装</p>
+                  <p>颜色:白色,尺码:XL</p>
+                  <div>
+                    <span>&yen;</span>
+                    <span>28.9</span>
+                    <span>×</span>
+                    <span>10</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div class="deliveryWay">
+              <div class="left">配送方式</div>
+              <div class="right">
+                <span>快递 &yen;</span>
+                <span>5.00</span>
+              </div>
+            </div>
+            <div class="remark">
+              <span>备注</span>
+              <input type="text" placeholder="请优先与卖家协商确认">
+            </div>
+          </div>
+
+          <div class="ticket">
+            <div class="lp LiangPiao">
+                <div class="left">粮票抵用</div>
+                <div class="right">
+                  <div>使用粮票可抵用30元</div>
+                  <img src="./assets/img/right1.png" alt="">
+                </div>
+            </div>
+            <div class="buy"></div>
+            <div class="lp invoice">
+                <div class="left">发票</div>
+                <div class="right">
+                  <div>电子发票-个人</div>
+                  <img src="./assets/img/right1.png" alt="">
+                </div>
+            </div>
+            <div class="line"></div>
+          </div>
+
+          <div class="amount">
+            <ul>
+              <li>
+                <div class="left">订单金额</div>
+                <div class="right">&yen; 2010.00</div>
+              </li>
+              <li>
+                <div class="left">运费</div>
+                <div class="right"> + &yen; 0.00</div>
+              </li>
+              <li>
+                <div class="left">粮票抵用</div>
+                <div class="right"> - &yen; 120.00</div>
+              </li>
+            </ul>
+          </div> -->
+        </div>
+
+        <!-- 底部 -->
+        <footer class="bottom">
+          <div class="left">
+            <div>实付</div>
+            <div>
+              <p>&yen; <span class="totalPrice"></span></p>
+              <p>粮票已抵<span class="use_lp"></span>元</p>
+            </div>
+          </div>
+          <div class="right">
+            <input class="submit" type="button" value="提交订单">
+          </div>
+        </footer>
+
+        <!-- 发票模态框 -->
+        <div class="invoice_model">
+          <div class="model_detail">
+            <div class="model_content">
+              <div class="box">
+                <div class="content_header">
+                  <div class="content_left">
+                    发票
+                  </div>
+                  <div class="content_right">
+                    <p>
+                      <span class="FP_rule">发票规则</span>
+                      <img class="close_invoice" src="./assets/img/close.png" alt="">
+                    </p>
+                  </div>
+                </div>
+                <div class="content_explain">
+                  悦站启用电子发票,目前仅支持悦站自营业务开具.
+                </div>
+                <div class="content_purpose">
+                  <div data-invoice="1" class="purpose_btn checked_btn">
+                    不开发票
+                  </div>
+                  <div data-invoice="2" class="purpose_btn">
+                    商品明细
+                  </div>
+                </div>
+                <div class="invoice_content">
+                  <div class="content_explain">
+                    发票类型
+                  </div>
+                  <div class="content_status">
+                    <div data-invoicetype="1" class="status_btn checked_btn">
+                      增值税普通发票
+                    </div>
+                    <div data-invoicetype="2" class="status_btn">
+                      增值税专用发票
+                    </div>
+                  </div>
+                  <p class="tips">
+                    请注意：增值税专用发票仅支持实体发票开具，将在订单确认收货后到物业服务处自取！
+                  </p>
+                  <div class="content_explain">
+                    发票抬头
+                  </div>
+                  <div class="content_rise">
+                    <div data-invoicetitle="1" class="rise_btn checked_btn">
+                      个人
+                    </div>
+                    <div data-invoicetitle="2" class="rise_btn">
+                      单位
+                    </div>
+                  </div>
+                  <div class="contetn_from">
+                    <input type="text" oninput="oninput1()" id="inp1" class="phone" maxlength="5" placeholder="请在此填写纳税人姓名"/>
+                    <input type="text" oninput="oninput2()" id="inp2" class="phone" placeholder="请在此填写纳税人识别号"/>
+                    <div class="from_explain">发票内容将根据订单明细开具</div>
+                  </div>
+                </div>
+              </div>
+
+
+
+            </div>
+
+            <div class="bottom_fix">
+              <input class="btn_FP model_submit" type="button" disabled="disabled" value="确定">
+            </div>
+
+
+
+          </div>
+
+          <!-- 发票规则模态框 -->
+          <div class="fp_ruleModal">
+            <div class="box">
+              <div class="rule1">发票规则</div>
+              <p>1.电子发票是税务局认可的有效首付款凭证，其法律效力、基本用途及使用规定同纸质发票，如需纸质发票可自行下载打印。</p>
+              <p>2.发票金额为用户实付金额（不含粮票支付部分）。</p>
+              <p>3.目前仅支持悦站自营业务开具。</p>
+              <p>4.用户可点击“我的”-“我的订单”-“查看发票”查询和下载。</p>
+              <div class="bottom2">我知道了</div>
+            </div>
+            <div class="box1"></div>
+          </div>
+        </div>
+        <!-- 粮票模态框 -->
+        <div class="LP_model">
+          <div class="model_detail">
+            <div class="model_content">
+              <div class="content_header">
+                <div class="content_left">
+                  粮票抵用
+                </div>
+                <div class="content_right">
+                  <p>
+                    <span class="LP_rule">粮票规则</span>
+                    <img class="close_invoice" src="./assets/img/close.png" alt="">
+                  </p>
+                </div>
+              </div>
+              <div class="content_explain">
+                本单可使用粮票抵用 <span style="color:darksalmon" class="price_num"></span> 元
+              </div>
+              <div class="content_purpose">
+                <div data-lp="1" class="purpose_btn checked_btn lp_true">
+                  使用粮票可抵用
+                </div>
+                <div data-lp="2" class="purpose_btn lp_false">
+                  不使用粮票
+                </div>
+              </div>
+              <div class="lpNum">
+                
+                <div style="display:none" class="lpNum_l lpNum_res">剩余 <span class="lp_res"></span> 粮票</div>  <!-- 使用后剩余的粮票 -->
+                <div style="display:none" class="lpNum_r lpNum_rAll">使用 <span class="price_num" style="color:darksalmon"></span> 粮票</div> <!-- 使用所有粮票 -->
+                <div style="display:none" class="lpNum_l lpNum_all">剩余 <span class="lp_allnum"></span> 粮票</div>  <!-- 不使用粮票 -->
+
+                <div style="display:none" class="lpNum_r lpNum_notE">粮票不足,还需 <span class="lp_notE" style="color:red"></span> 粮票</div>
+                <div style="display:none" class="lpNum_l lpNum_short">剩余 <span class="lp_allnum"></span> 粮票</div>
+              </div>
+              <div class="goMember">
+                <div class="buyMember">立即购买粮票,本单可省 <span class="price_num"></span> 元</div>
+                <div><img src="./assets/img/right1.png" alt=""></div>
+              </div>
+            </div>
+            <div>
+              <input class="btn_LP model_submit" type="button" value="确定">
+            </div>
+          </div>
+
+          <!-- 粮票规则模态框 -->
+          <div class="lp_ruleModal">
+            <div class="box">
+              <div class="rule1">粮票规则</div>
+              <p>1.粮票只能针对订单进行全额抵扣，不能部分抵扣。</p>
+              <p>2.订单默认使用粮票进行抵扣。</p>
+              <p>3.粮票不足需购买套餐。</p>
+              <div class="bottom1">我知道了</div>
+            </div>
+            <div class="box1"></div>
+          </div>
+        </div>
+
+
+
+        <!-- 错误提示 -->
+        <div class="failTips">
+          <div class="iconfont icon-guanbi"></div>
+          <p>报错!!!!</p>
+        </div>
+    
+    </div>
+
+    <script type="text/template" id="tmp-data">
+        <!-- 地址 -->
+        <div class="address">
+          <p class="address_address">{{address.areaName}}{{address.address}}</p>
+          <p>
+            <span>
+              {{address.label}}
+            </span>
+            <span class="address_name">{{address.name}}</span>
+            <span class="address_phone">{{address.phone}}</span>
+          </p>
+
+        </div>
+        <div class="sd1"></div>
+
+        <!-- 订单 -->
+        <div class="jiayuan-order">
+          <div class="store">
+            <img src="./assets/img/bb.png" alt=""> 
+            <div>佳源自营</div>
+          </div>
+          <ul>
+            {{each selfSupportList $v $i}}
+              <li data-id={{$v.goodId}} class="li_goDetail">
+                <div>
+                    <img src="http://local.jiayuanplus.com/common/upload/download?uuid={{$v.goodPic}}&viewFlag=1&fileType=jpg&filename=aa&apiName=common.upload.download&merchantCode=0001" alt="">
+                </div>
+                
+                <div>
+                  <p>{{$v.goodName}}</p>
+                  <p>{{$v.skuName}}</p>
+                  <div>
+                    <span>&yen;</span>
+                    <span>{{$v.skuAmount}}</span>
+                    <span>×</span>
+                    <span>{{$v.num}}</span>
+                  </div>
+                </div>
+              </li>
+            {{/each}}
+          </ul>
+          <div class="deliveryWay">
+            <div class="left">配送方式</div>
+            <div class="right">
+              <p class="right_1">物业配送到家 免邮</p>
+              <p class="right_2">尽快配送</p>
+              <img src="./assets/img/right1.png" alt="">
+            </div>
+          </div>
+          <div class="remark">
+            <span>备注</span>
+            <input type="text" class="selfSupportRemark" placeholder="请优先与卖家协商确认">
+          </div>
+        </div>
+
+        <div class="yuezhan-order">
+          <div class="store">
+            <img src="./assets/img/bb.png" alt=""> 
+            <div>悦站优选</div>
+          </div>
+          <ul>
+            {{each optimizationList $v $i}}
+              <li data-id={{$v.goodId}} class="li_goDetail">
+                <div>
+                    <img src="http://local.jiayuanplus.com/common/upload/download?uuid={{$v.goodPic}}&viewFlag=1&fileType=jpg&filename=aa&apiName=common.upload.download&merchantCode=0001" alt="">
+                </div>
+                
+                <div>
+                  <p>{{$v.goodName}}</p>
+                  <p>{{$v.skuName}}</p>
+                  <div>
+                    <span>&yen;</span>
+                    <span>{{$v.skuAmount}}</span>
+                    <span>×</span>
+                    <span>{{$v.num}}</span>
+                  </div>
+                </div>
+              </li>
+            {{/each}}
+          </ul>
+          <div class="deliveryWay">
+            <div class="left">配送方式</div>
+            <div class="right">
+              <span>快递 &yen;</span>
+              <span>{{ freightTotal }}</span>
+            </div>
+          </div>
+          <div class="remark">
+            <span>备注</span>
+            <input type="text" class="optimizationRemark" placeholder="请优先与卖家协商确认">
+          </div>
+        </div>
+
+
+
+        <!-- 粮票及发票 -->
+        <div class="ticket">
+          <div class="lp LiangPiao">
+              <div class="left">粮票抵用</div>
+              <div class="right">
+                <div class="LiangPiao_res">使用粮票可抵用 {{skuTicket}} 元</div>
+                <img class="right_img" src="./assets/img/right1.png" alt="">
+              </div>
+          </div>
+          <div class="buy">
+            <div class="left">开通悦站会员本单可抵用 {{skuTicket}} 元</div>
+            <div class="right">
+              <div>立即购买</div>
+              <img src="./assets/img/right1.png" alt="">
+            </div>
+          </div>
+          <div class="lp invoice">
+              <div class="left">发票</div>
+              <div class="right">
+                <div class="right_fp">不开发票</div>
+                <img src="./assets/img/right1.png" alt="">
+              </div>
+          </div>
+          <div class="line"></div>
+        </div>
+
+        <!-- 金额 -->  
+        <div class="amount">
+          <ul>
+            <li>
+              <div class="left">订单金额</div>
+              <div class="right">&yen; {{originalPriceTotal}}</div>
+            </li>
+            <li>
+              <div class="left">运费</div>
+              <div class="right"> + &yen; {{freightTotal}}</div>
+            </li>
+            <li>
+              <div class="left">粮票抵用</div>
+              <div class="right"> - &yen; <span class="amount_right">0</span></div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sd"></div>
+    </script>
+
+
+  </body>
+
+  <script src="./assets/js/qs6.3.1.js"></script>
+  <script src="./assets/js/moment2.24.js"></script>
+
+  <script>
+
+    var domain = `http://local.zephcard.com`;  //测试域名
+    // var domain = `http://www.jiayuanplus.com`;  //线上域名(接口)
+    // var domain = `http://business.zephcard.com`;   //线上域名(跳转)
+
+    //监听window高度,处理底部按钮定位失效问题
+    var win_h = $(window).height();
+    window.addEventListener('resize', function () {
+        if($(window).height() < win_h){
+            $('.bottom_fix').hide();
+            $('.bottom').hide();
+
+        }else{
+            $('.bottom_fix').show();
+            $('.bottom').show();
+
+        }
+    });
+
+    //加法  解决小数加丢失精度问题
+    function accAdd(arg1,arg2){  
+      var r1,r2,m;  
+      try{r1=arg1.toString().split(".")[1].length}catch(e){r1=0}  
+      try{r2=arg2.toString().split(".")[1].length}catch(e){r2=0}  
+      m=Math.pow(10,Math.max(r1,r2))
+      return numDiv((mul(arg1,m)+mul(arg2,m)),m) 
+    }
+    //减法  解决小数加丢失精度问题
+    function accSub(arg1,arg2){
+      var r1,r2,m,n;	
+      try{r1=arg1.toString().split(".")[1].length;}catch(e){r1=0;}	
+      try{r2=arg2.toString().split(".")[1].length;}catch(e){r2=0;}	
+      m=Math.pow(10,Math.max(r1,r2));
+      //动态控制精度长度	
+      n=(r1>=r2)?r1:r2;	
+      return (numDiv((mul(arg1,m)-mul(arg2,m)),m)).toFixed(n)  
+    }
+    //乘法  解决小数加丢失精度问题    
+    function mul(a, b) {
+      var c = 0,
+          d = a.toString(),
+          e = b.toString();
+      try {
+          c += d.split(".")[1].length;
+      } catch (f) {}
+      try {
+          c += e.split(".")[1].length;
+      } catch (f) {}
+      return Number(d.replace(".", "")) * Number(e.replace(".", "")) / Math.pow(10, c);
+    }
+    //除法  解决小数加丢失精度问题    
+    function numDiv(a, b) {
+      var c, d, e = 0,
+      f = 0;
+      try {
+        e = a.toString().split(".")[1].length;
+      } catch (g) {}
+      try {
+        f = b.toString().split(".")[1].length;
+      } catch (g) {}
+      return c = Number(a.toString().replace(".", "")), d = Number(b.toString().replace(".", "")), mul(c / d, Math.pow(10, f - e));
+    }
+
+
+    var allData;
+    var invoice = {}; //用来储存发票的数据
+    var invoice_type = '1';//发票类型
+    var invoice_title = '1';//发票抬头
+    var invoiceStatus = '0';//是否开发票
+
+    var use = '0';//是否使用粮票:0未使用,1使用
+
+
+    var cacheDatas = JSON.parse(sessionStorage.getItem('cacheData'));
+
+    var cacheData = {}; //用来储存数据
+
+    //获取url后面的参数
+    function getSearch() {
+      var str = location.search;
+      search = decodeURI(str);
+      search = str.slice(1);
+      var arr = search.split("&");
+      var obj = {};
+      arr.forEach(function (e, i) {
+        var key = e.split("=")[0];
+        var value = e.split("=")[1];
+        obj[key] = value;
+      })
+      return obj;
+    }
+
+    var parmas = {};
+    parmas.userId = getSearch().userId;
+    parmas.optimizationIds = getSearch().optimizationIds;
+    parmas.selfSupportIds = getSearch().selfSupportIds;
+    parmas.addressId = getSearch().addressId;
+    parmas.userName = getSearch().userName;
+    parmas.userPhone = getSearch().userPhone;
+    parmas.token = getSearch().token;
+
+    localStorage.setItem('parmas',JSON.stringify(parmas));
+
+    var myDate = new Date();
+    var curYear = myDate.getFullYear();
+
+    //正则
+    var reg = /^[a-z0-9]+$/i;
+
+    var freightTimeStart = '';
+    var freightTimeEnd = '';
+
+    function ajaxData() {
+      $.ajax({
+        url:`../../mall/cart/settlementList`,  //线上环境
+        // url:`http://r17753n223.51mypc.cn:9090/mall/cart/settlementList`, //外网访问本地环境
+        // url:`http://local.zephcard.com/mall/cart/settlementList`, //测试环境
+        type: 'POST',
+        data: {
+          userId: getSearch().userId ? getSearch().userId : 'HY201811220948231855',
+          optimizationIds: getSearch().optimizationIds,
+          selfSupportIds: getSearch().selfSupportIds,
+          addressId: getSearch().addressId,
+          apiName: 'mall.cart.settlementList',
+          merchantCode: '0001',
+          token: getSearch().token ? getSearch().token : '46ee04d8-bc50-497e-bc43-ac9ec47eb426'
+        },
+        success:function (data) {
+          if(data.code == '200'){
+            allData = data.data;
+            var html = template('tmp-data',data.data);
+            $('.contet').html(html);
+
+            localStorage.setItem('pick',JSON.stringify(data.data.pick)); //对否支持自取
+
+            if(data.data.selfSupportList.length == 0) {
+              $('.contet').find('.jiayuan-order').css('display','none')
+            }else{
+              $('.contet').find('.jiayuan-order').css('display','block')
+            }
+            if(data.data.optimizationList.length == 0) {
+              $('.contet').find('.yuezhan-order').css('display','none')
+            }else{
+              $('.contet').find('.yuezhan-order').css('display','block')
+            }
+
+            var goodIDs = allData.selfSupportList.map(function (ele) {
+              return ele.goodId
+            })
+            localStorage.setItem('goodIDs',JSON.stringify(goodIDs));
+
+            $('.price_num').text(data.data.skuTicket);
+            $('.lp_allnum').text(data.data.surplusTotal);
+
+            //粮票不足时,不使用粮票按钮默认高亮
+            if(data.data.surplusTotal < data.data.skuTicket){
+              $($('.LP_model .content_purpose').find('div')).css('background','#FFFBF0');
+              $($('.LP_model .content_purpose').find('div')[1]).css('background','linear-gradient(#FDD60C, #FFB40B)');
+
+              $('.lpNum_all').css('display','block');
+              $('.goMember').css('display','none');
+              $('.lp_notE').text(accSub(data.data.skuTicket,data.data.surplusTotal));
+              //粮票不足,显示购买提示
+              $('.contet').find('.buy').css('display','block');
+              $('.contet').find('.LiangPiao_res').text('粮票不足');
+              $('.contet').find('.right_img').css('display','none');
+
+              //实付金额及抵用粮票
+              $('.totalPrice').text(accAdd(allData.originalPriceTotal,allData.freightTotal));
+              $('.use_lp').text(0);
+
+            }
+            //粮票足够时
+            if(data.data.surplusTotal >= data.data.skuTicket){
+              $($('.LP_model .content_purpose').find('div')).css('background','#FFFBF0');
+              $($('.LP_model .content_purpose').find('div')[0]).css('background','linear-gradient(#FDD60C, #FFB40B)');
+              $('.lpNum_rAll').css('display','block');
+              $('.lpNum_res').css('display','block');
+              $('.goMember').css('display','none');
+              $('.lp_res').text(accSub(data.data.surplusTotal,data.data.skuTicket));
+              $('.amount_right').text(data.data.skuTicket);
+
+              //实付金额及抵用粮票
+              $('.totalPrice').text(accSub(accAdd(data.data.originalPriceTotal,data.data.freightTotal),data.data.skuTicket));
+              $('.use_lp').text(data.data.skuTicket);
+            }
+
+            //判断localStorage里是否有数据
+            var deliveryData = JSON.parse(sessionStorage.getItem('delivery_way'));
+            if(deliveryData){ //配送方式
+              if(deliveryData.wayInfo == '送货到家'){
+                $('.contet').find('.jiayuan-order .right_1').text('送货到家');
+                $('.contet').find('.jiayuan-order .right_2').text(deliveryData.delivery_dateTime);
+
+                var m1 = deliveryData.delivery_dateTime.split(' ')[0].slice(0,2); //月
+                var d1 = deliveryData.delivery_dateTime.split(' ')[0].slice(3,5); //日
+                var startTime1 = deliveryData.delivery_dateTime.split(' ')[1].slice(3).split('-')[0]; //起始时间
+                var endTime1 = deliveryData.delivery_dateTime.split(' ')[1].slice(3).split('-')[1]; //结束时间
+
+                freightTimeStart = moment(`${curYear}-${m1}-${d1} ${startTime1}:${00}`).format('x');
+                freightTimeEnd = moment(`${curYear}-${m1}-${d1} ${endTime1}:${00}`).format('x');
+
+
+              }else if(deliveryData.wayInfo == '上门自取'){
+                $('.contet').find('.jiayuan-order .right_1').text('上门自取');
+                $('.contet').find('.jiayuan-order .right_2').text(deliveryData.delivery_dateTime);
+
+                var m2 = deliveryData.delivery_dateTime.slice(0,2);  //月
+                var d2 = deliveryData.delivery_dateTime.slice(0,2);  //月
+                var time = deliveryData.delivery_dateTime.slice(0,2);  //月
+
+                freightTimeStart = moment(`${curYear}-${m2}-${d2} ${time}:${00}`).format('x');
+                freightTimeEnd = moment(`${curYear}-${m2}-${d2} ${time}:${00}`).format('x');
+
+
+              }else{
+                $('.contet').find('.jiayuan-order .right_1').text('物业配送');
+                $('.contet').find('.jiayuan-order .right_2').text(deliveryData.delivery_dateTime);
+
+                var m3 = deliveryData.delivery_dateTime.slice(2,4);  //月
+                var d3 = deliveryData.delivery_dateTime.slice(5,7);  //日
+
+                freightTimeStart = moment(`${curYear}-${m3}-${d3} 00:00:00`).format('x');
+                freightTimeEnd = moment(`${curYear}-${m3}-${d3} 00:00:00`).format('x');
+              }
+               
+            }
+
+            if(cacheDatas) {
+              if(cacheDatas.invoiceStatus == '0') { //不开发票
+                $('.contet').find('.right_fp').text('不开发票');
+              }
+              if(cacheDatas.invoiceStatus == '1') { //开发票
+                if(cacheDatas.invoice_title == '1') {
+                  $('.contet').find('.right_fp').text('电子发票-'+'个人');
+                }
+                if(cacheDatas.invoice_title == '2') {
+                  $('.contet').find('.right_fp').text('电子发票-'+'单位');
+                }
+              }
+            }
+
+            //失去焦点把备注数据保存
+            $('.selfSupportRemark').blur(function () {
+              cacheData.selfSupportRemark = $('.selfSupportRemark').val();
+            })
+
+            $('.optimizationRemark').blur(function () {
+              cacheData.optimizationRemark = $('.optimizationRemark').val();
+            })
+
+            if(cacheDatas){
+              $('.selfSupportRemark').val(cacheDatas.selfSupportRemark);
+              $('.optimizationRemark').val(cacheDatas.optimizationRemark);
+            }
+
+
+          }else{
+            $('.failTips').find('p').text(data.message);
+            $('.failTips').css('display','block');
+
+            setTimeout(function () {
+              $('.failTips').css('display','none');
+            },2000)
+            
+          }
+          
+        }
+      })
+    };
+    ajaxData();
+
+
+    
+    function oninput1() {
+      if(invoice_title == '1'){
+        if($('#inp1').val().length > 0){
+          $('.btn_FP').css('background','linear-gradient(#FDD60C, #FFB40B)');
+          $('.btn_FP').removeAttr("disabled");
+        }else{
+          $('.btn_FP').css('background','linear-gradient(#CFCFCF, #AFAFAF)');
+          $('.btn_FP').attr("disabled","disabled");
+        }
+      }
+    }
+    function oninput2() {
+      if(invoice_title == '2'){
+        if($('#inp1').val().length > 0 && $('#inp2').val().length > 0){
+          $('.btn_FP').css('background','linear-gradient(#FDD60C, #FFB40B)');
+          $('.btn_FP').removeAttr("disabled");
+        }else{
+          $('.btn_FP').css('background','linear-gradient(#CFCFCF, #AFAFAF)');
+          $('.btn_FP').attr("disabled","disabled");
+        }
+      }
+    }
+
+    if(invoiceStatus == '0'){
+      $('.btn_FP').css('background','linear-gradient(#FDD60C, #FFB40B)');
+      $('.btn_FP').removeAttr("disabled");
+    }
+
+    //点击发票,弹出发票框
+    $('.contet').on('click','.invoice',function(){
+
+      $('.invoice_model').css('display','block');
+      if(invoiceStatus == '1'){
+        if(cacheDatas){
+          if(cacheDatas.invoice_title == '1'){
+              if($('#inp1').val().length > 0){
+                $('.btn_FP').css('background','linear-gradient(#FDD60C, #FFB40B)');
+                $('.btn_FP').removeAttr("disabled");
+              }else{
+                $('.btn_FP').css('background','linear-gradient(#CFCFCF, #AFAFAF)');
+                $('.btn_FP').attr("disabled","disabled");
+              }
+          }
+        }
+        if(cacheDatas){
+          if(cacheDatas.invoice_title == '2'){
+            if($('#inp1').val().length > 0 && $('#inp2').val().length > 0){
+              $('.btn_FP').css('background','linear-gradient(#FDD60C, #FFB40B)');
+              $('.btn_FP').removeAttr("disabled");
+            }else{
+              $('.btn_FP').css('background','linear-gradient(#CFCFCF, #AFAFAF)');
+              $('.btn_FP').attr("disabled","disabled");
+            }
+          }
+        }
+        if(invoice_title == '2'){
+          if($('#inp1').val().length > 0 && $('#inp2').val().length > 0){
+            $('.btn_FP').css('background','linear-gradient(#FDD60C, #FFB40B)');
+            $('.btn_FP').removeAttr("disabled");
+          }else{
+            $('.btn_FP').css('background','linear-gradient(#CFCFCF, #AFAFAF)');
+            $('.btn_FP').attr("disabled","disabled");
+          }
+        }
+        if(invoice_title == '1'){
+          if($('#inp1').val().length > 0){
+            $('.btn_FP').css('background','linear-gradient(#FDD60C, #FFB40B)');
+            $('.btn_FP').removeAttr("disabled");
+          }else{
+            $('.btn_FP').css('background','linear-gradient(#CFCFCF, #AFAFAF)');
+            $('.btn_FP').attr("disabled","disabled");
+          }
+        }
+      }
+
+    })
+    
+    //点击粮票,弹出粮票框
+    $('.contet').on('click','.LiangPiao',function(){
+        $('.LP_model').css('display','block');
+    })
+    //关闭发票框
+    $('.invoice_model .close_invoice').on('click',function(){
+      $('.invoice_model').css('display','none');
+
+      $('#inp1').val('');
+      $('#inp2').val('');
+
+    })
+    //关闭粮票框
+    $('.LP_model .close_invoice').on('click',function(e){
+      e.stopPropagation(e);
+      $('.LP_model').css('display','none');
+    })
+
+
+
+    //发票操作
+    $('.invoice_model .content_purpose').on('click','div',function(){ //是否使用发票
+      $('.invoice_model .content_purpose').find('div').css('background','#FFFBF0');
+      $(this).css('background','linear-gradient(#FDD60C, #FFB40B)');
+
+      var value = $(this).data('invoice');
+      if(value == 1){
+        invoiceStatus = '0';
+        cacheData.invoiceStatus = '0';
+        $('#inp1').val('');
+        $('#inp2').val('');
+        $('.btn_FP').css('background','linear-gradient(#FDD60C, #FFB40B)');
+        $('.btn_FP').removeAttr("disabled");
+        $('.invoice_model .invoice_content').css('display','none');
+      }
+      if(value == 2){
+        invoiceStatus = '1';
+        cacheData.invoiceStatus = '1';
+        $('.btn_FP').css('background','linear-gradient(#CFCFCF, #AFAFAF)');
+        $('.btn_FP').attr("disabled","disabled");
+        $('.invoice_model .invoice_content').css('display','block');
+      }
+    })
+    $('.invoice_model .content_status').on('click','div',function(){  //选择发票类型
+      $('.invoice_model .content_status').find('div').css('background','#FFFBF0');
+      $(this).css('background','linear-gradient(#FDD60C, #FFB40B)');
+
+      var value = $(this).data('invoicetype');
+      if(value == 1){
+        // cacheData.invoice_type = '1';
+        invoice_type = '1';
+        $('.tips').css('display','none');
+      }
+      if(value == 2){
+        // cacheData.invoice_type = '2';
+        invoice_type = '2';
+        $('.tips').css('display','block');
+      }
+    })
+    $('.invoice_model .content_rise').on('click','div',function(){  //发票选择个人和单位
+      $('.invoice_model .content_rise').find('div').css('background','#FFFBF0');
+      $(this).css('background','linear-gradient(#FDD60C, #FFB40B)');
+
+      $('.btn_FP').css('background','linear-gradient(#CFCFCF, #AFAFAF)');
+      $('.btn_FP').attr("disabled","disabled");
+
+      var value = $(this).data('invoicetitle');
+      if(value == 1){
+        // cacheData.invoice_title = '1';
+        invoice_title = '1';
+        $('#inp2').css('display','none');
+        $('#inp1').val('');
+        $('#inp2').val('');
+      }
+      if(value == 2){
+        // cacheData.invoice_title = '2';
+        invoice_title = '2';
+        $('#inp2').css('display','block');
+        $('#inp1').val('');
+      }
+    })
+
+    //粮票操作
+    $('.LP_model .content_purpose').on('click','div',function(){
+      $('.LP_model .content_purpose').find('div').css('background','#FFFBF0');
+      $(this).css('background','linear-gradient(#FDD60C, #FFB40B)');
+      var value = $(this).data('lp');
+
+      //粮票不足时,使用粮票
+      if(allData.surplusTotal < allData.skuTicket){
+        if(value == 2){
+          use = '0';//不使用粮票
+
+          $('.goMember').css('display','none');
+          $('.lpNum_all').css('display','block');
+
+          $('.goMember').css('display','none');
+          $('.lpNum_short').css('display','none');
+          $('.lpNum_notE').css('display','none');
+
+          $('.amount_right').text(0);
+
+          $('.btn_LP').css('background','linear-gradient(#FDD60C, #FFB40B)');
+          $('.btn_LP').removeAttr("disabled");
+
+
+        }
+        if(value == 1){//使用粮票
+          $('.lpNum_all').css('display','none');
+
+          $('.goMember').css('display','block');
+          $('.lpNum_short').css('display','block');
+          $('.lpNum_notE').css('display','block');
+
+          //确定按钮编程灰色
+          $('.btn_LP').css('background','linear-gradient(#CFCFCF, #AFAFAF)');
+          $('.btn_LP').attr("disabled","disabled");
+
+
+
+        }
+      }
+      //粮票足够时
+      if(allData.surplusTotal >= allData.skuTicket){
+        if(value == 2){//不使用粮票
+          use = '0';
+          $('.lpNum_all').css('display','block');
+          $('.lpNum_res').css('display','none');
+          $('.lpNum_rAll').css('display','none');
+          $('.goMember').css('display','none');
+
+        }
+        if(value == 1){//使用粮票
+          use = '1';
+          $('.lpNum_all').css('display','none');
+          $('.lpNum_res').css('display','block');
+          $('.lpNum_rAll').css('display','block');
+          $('.goMember').css('display','none');
+
+        }
+      }
+
+
+    })
+
+    //发票模态框点击确定
+    $('.btn_FP').on('click',function () {
+      if(cacheDatas) {
+        if(cacheDatas.invoiceStatus == '0') {
+          invoice = {};
+          cacheData.invoiceStatus = '0';
+          $('.contet').find('.right_fp').text('不开发票');
+        }
+      }
+      if(invoiceStatus == '0'){
+        invoice = {};
+        cacheData.invoiceStatus = '0';
+        $('.contet').find('.right_fp').text('不开发票');
+      }
+      if(cacheDatas) {
+        if(cacheDatas.invoiceStatus == '1') {
+          if(cacheDatas.invoice_title == '1') {
+            invoice.fp = '商品明细';
+            invoice.title = invoice_title;
+            invoice.type = invoice_type;
+            invoice.name = $('#inp1').val();
+            $('.contet').find('.right_fp').text('电子发票-'+'个人');
+            cacheData.invoiceText = '电子发票-'+'个人';
+            cacheData.name = $('#inp1').val();
+            cacheData.invoice_type = '1';
+            cacheData.invoice_title = '1';
+          }
+          if(cacheDatas.invoice_title == '2') {
+            if(!reg.test($('#inp2').val())){
+              $('#inp2').val('');
+              $('#inp2').attr('placeholder','纳税人识别号只能输入数字和英文!');
+              $('.btn_FP').css('background','linear-gradient(#CFCFCF, #AFAFAF)');
+              $('.btn_FP').attr("disabled","disabled");
+              return false;
+            }
+            invoice.title = invoice_title;
+            invoice.type = invoice_type;
+            invoice.name = $('#inp1').val();
+            invoice.num = $('#inp2').val();
+            cacheData.name = $('#inp1').val();
+            cacheData.num = $('#inp2').val();
+            cacheData.invoice_type = '2';
+            cacheData.invoice_title = '2';
+            $('.contet').find('.right_fp').text('电子发票-'+'单位');
+            cacheData.invoiceText = '电子发票-'+'单位';
+          }
+        }
+      }
+      if(invoiceStatus == '1'){
+        if(invoice_title == '1'){
+          invoice.fp = '商品明细';
+          invoice.title = invoice_title;
+          invoice.type = invoice_type;
+          invoice.name = $('#inp1').val();
+          $('.contet').find('.right_fp').text('电子发票-'+'个人');
+          cacheData.invoiceText = '电子发票-'+'个人';
+          cacheData.name = $('#inp1').val();
+          cacheData.invoice_type = '1';
+          cacheData.invoice_title = '1';
+
+        }
+        if(invoice_title == '2'){
+          if(!reg.test($('#inp2').val())){
+            $('#inp2').val('');
+            $('#inp2').attr('placeholder','纳税人识别号只能输入数字和英文!');
+            $('.btn_FP').css('background','linear-gradient(#CFCFCF, #AFAFAF)');
+            $('.btn_FP').attr("disabled","disabled");
+            return false;
+          }
+          invoice.title = invoice_title;
+          invoice.type = invoice_type;
+          invoice.name = $('#inp1').val();
+          invoice.num = $('#inp2').val();
+          cacheData.name = $('#inp1').val();
+          cacheData.num = $('#inp2').val();
+          cacheData.invoice_type = '2';
+          cacheData.invoice_title = '2';
+          $('.contet').find('.right_fp').text('电子发票-'+'单位');
+          cacheData.invoiceText = '电子发票-'+'单位';
+        }
+
+        cacheData.invoiceStatus = '1';
+        
+      }
+
+      sessionStorage.setItem('cacheData', JSON.stringify(cacheData));
+      $('.invoice_model').css('display','none');
+
+    })
+    //粮票模态框点击确定
+    $('.btn_LP').on('click',function () {
+      if(use == '0'){
+        $('.lpNum_all').css('display','block');
+          $('.lpNum_res').css('display','none');
+          $('.lpNum_rAll').css('display','none');
+          $('.goMember').css('display','none');
+
+          $('.totalPrice').text(accAdd(allData.originalPriceTotal,allData.freightTotal));
+          $('.use_lp').text(0);
+          $('.amount_right').text(0);
+          
+          $('.LiangPiao_res').text('不使用');
+      }
+      if(use == '1'){
+        
+        $('.totalPrice').text(accSub(accAdd(allData.originalPriceTotal,allData.freightTotal),allData.skuTicket));
+        $('.use_lp').text(allData.skuTicket);
+        $('.amount_right').text(allData.skuTicket);
+        $('.LiangPiao_res').text(`使用粮票可抵用 ${allData.skuTicket} 元`);
+      }
+
+
+      $('.LP_model').css('display','none');
+    })
+
+    //点击弹出粮票规则
+    $('.LP_rule').on('click',function () {
+      $('.lp_ruleModal').css('display','block');
+    })
+    //点击关闭粮票规则
+    $('.bottom1').on('click',function () {
+      $('.lp_ruleModal').css('display','none');
+    })
+    //点击弹出发票规则
+    $('.FP_rule').on('click',function () {
+      $('.fp_ruleModal').css('display','block');
+    })
+    //点击关闭发票规则
+    $('.bottom2').on('click',function () {
+      $('.fp_ruleModal').css('display','none');
+    })
+    
+    $('.box1').on('click',function () {
+      $('.fp_ruleModal').css('display','none');
+      $('.lp_ruleModal').css('display','none');
+    })
+    
+
+    //点击跳转购买粮票
+    $('.contet').on('click','.buy',function () {
+      window.location.href = `${domain}/h5/dist/#/memberDetail?userId=${getSearch().userId}&token=${getSearch().token}`
+    })
+    $('.goMember').on('click',function () {
+      window.location.href = `${domain}/h5/dist/#/memberDetail?userId=${getSearch().userId}&token=${getSearch().token}`
+    })
+    $('.contet').on('click','.goMember',function () {
+      window.location.href = `${domain}/h5/dist/#/memberDetail?userId=${getSearch().userId}&token=${getSearch().token}`  
+    })
+
+    //点击配送方式,跳转配送方式页面
+    $('.contet').on('click','.jiayuan-order .deliveryWay .right',function () {
+      window.location.href = './deliveryWay.html';
+    })
+
+
+
+    //点击跳转到详情
+    $('.li_goDetail').on('click',function () {
+      goDetail($('.li_goDetail').data('goodId'))
+    })
+    
+    function goDetail(){
+      //安卓
+      window.WebViewJavascriptBridge.callHandler(
+        'goDetail',
+        {'id': $('.li_goDetail').data('goodId')}
+      );
+
+    }
+
+
+
+    function goPay(){
+      //安卓
+      window.WebViewJavascriptBridge.callHandler(
+        'goPay',
+        {}
+      );
+
+    }
+
+    //提交订单
+    $('.submit').on('click',function () {
+      $('.submit').attr("disabled","disabled");
+      var cacheDatas = JSON.parse(sessionStorage.getItem('cacheData'));
+
+      var deliveryData = JSON.parse(sessionStorage.getItem('delivery_way'));
+      var parmas = JSON.parse(localStorage.getItem('parmas'));
+      //佳源自营
+      var selfSupports = [];
+      allData.selfSupportList.forEach(function (e,i) {
+        selfSupports.push({
+          amount: e.skuAmount,
+          freight: e.goodFreight,
+          goodId: e.goodId,
+          goodName: e.goodName,
+          num: e.num,
+          pic: e.goodPic,
+          skuCode: e.skuCode,
+          skuId: e.skuId,
+          skuName: e.skuName,
+          ticket: e.skuTicket,
+        })
+      })
+      //悦站优选
+      var optimizations = [];
+      allData.optimizationList.forEach(function (e,i) {
+        optimizations.push({
+          amount: e.skuAmount,
+          freight: e.goodFreight,
+          goodId: e.goodId,
+          goodName: e.goodName,
+          num: e.num,
+          pic: e.goodPic,
+          skuCode: e.skuCode,
+          skuId: e.skuId,
+          skuName: e.skuName,
+          ticket: e.skuTicket,
+        })
+      })
+      
+      var data = {
+          userId: getSearch().userId,
+          freightTimeStart: freightTimeStart,
+          freightTimeEnd: freightTimeEnd,
+          apiName: 'mall.order.add',
+          merchantCode: '0001',
+          use: $('.use_lp').text(),
+          token: getSearch().token,
+          terminal: '1',
+          [`address.comId`]: allData.address.comId,
+          [`address.address`]: $('.address_address').text(),
+          [`address.name`]: $('.address_name').text(),
+          [`address.phone`]: $('.address_phone').text(),
+          [`order.userId`]: getSearch().userId,
+          [`order.userName`]: getSearch().userName,
+          [`order.userPhone`]: getSearch().userPhone,
+          receiptAccount: getSearch().userPhone,
+          cartIds: allData.cartIds,
+          freightTimeInfo: deliveryData ? deliveryData.delivery_dateTime : '尽快配送',
+          way: deliveryData ? deliveryData.way : '1',
+          selfRaisingId: deliveryData ? deliveryData.address_id : '',
+          invoiceStatus: cacheDatas ? cacheDatas.invoiceStatus : invoiceStatus, //判断是否开发票
+          [`orderInvoice.type`]: cacheDatas ? cacheDatas.invoice_type : invoice.type,   //发票类型(普通发票,增值税发票)
+          [`orderInvoice.userType`]: cacheDatas ? cacheDatas.invoice_title : invoice.title,  //开票类型(个人,单位)
+          [`orderInvoice.tax`]: cacheDatas ? cacheDatas.num : '',
+          [`orderInvoice.title`]: cacheDatas ? cacheDatas.name : '',
+          selfSupports: selfSupports,
+          optimizations: optimizations,
+          [`order.amount`]: $('.totalPrice').text(),
+          [`order.originalPrice`]: allData.originalPriceTotal,
+          [`order.source`]: '1',
+          [`order.ticket`]: $('.amount_right').text(),
+          [`orderInvoice.amountInvoice`]: $('.totalPrice').text(),
+          selfSupportRemark: cacheDatas ? cacheDatas.selfSupportRemark : $('.selfSupportRemark').val(),
+          optimizationRemark: cacheDatas ? cacheDatas.optimizationRemark : $('.optimizationRemark').val()
+      }
+
+      $.ajax({
+        url:`../../mall/order/add`,
+        // url:`http://r17753n223.51mypc.cn:9090/mall/order/add`, //外网访问本地环境
+        // url:`http://local.zephcard.com/mall/order/add`, //测试环境
+        type: 'POST',
+        data: Qs.stringify(data,{arrayFormat: 'indices', allowDots: true}),
+        success: function (info) {
+          if(info.code == '200'){
+            localStorage.setItem('orderData', JSON.stringify(info.data));
+            window.location.href = './checkstand.html?origOrderNo='+info.data.origOrderNo+"&type=2&userId="+getSearch().userId+"&token="+getSearch().token+"&userName="+getSearch().userName+"&userPhone="+getSearch().userPhone;
+          
+            localStorage.clear();
+            sessionStorage.clear();
+
+            goPay();//安卓端页面进入收银台需要调的方法
+          
+          }else{
+            $('.failTips').find('p').text(info.message);
+            $('.failTips').css('display','block');
+
+            setTimeout(function (params) {
+              $('.failTips').css('display','none');
+            },2000)
+            
+          }
+        }
+      })
+    })
+
+    //返回按钮
+    function back() {
+      localStorage.clear();
+      sessionStorage.clear();
+      window.WebViewJavascriptBridge.callHandler(
+        'back',
+        {}
+      );
+    }
+
+
+
+
+
+  </script>
+
+
+</html>
